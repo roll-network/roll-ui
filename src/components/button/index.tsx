@@ -1,4 +1,3 @@
-import React from "react";
 import { View, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -10,6 +9,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Button() {
+export function Button() {
   return <View style={styles.button} />;
 }
