@@ -1,5 +1,3 @@
-export * from "./components/button";
-export * from "./components/surface";
-export * from "./components/typography";
-export * from "./components/circleImg";
+export * from "./components";
 export * from "./styles";
+export * from "./providers";
