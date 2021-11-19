@@ -33,12 +33,15 @@ export const Button: React.FC<Props> = ({
 }) => {
   return (
     <LinearGradient
-      style={[styles.container, containers.center, style]}
+      style={[styles.container, style]}
       start={{ x: 0, y: 1 }}
       end={{ x: 1, y: 1 }}
       colors={["#004EFF", "#0085FF"]}
     >
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity
+        style={[containers.fullHeight, containers.fullWidth, containers.center]}
+        onPress={onPress}
+      >
         {title ? <Body>{title}</Body> : children}
       </TouchableOpacity>
     </LinearGradient>

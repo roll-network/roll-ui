@@ -1,4 +1,13 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TextStyle, ViewStyle } from "react-native";
+
+export const makeStyles = <T = {}>(styles: StyleSheet.NamedStyles<T>) =>
+  StyleSheet.create(styles);
+
+export const makeTextStyles = (styles: StyleSheet.NamedStyles<TextStyle>) =>
+  StyleSheet.create(styles);
+
+export const makeViewStyles = (styles: StyleSheet.NamedStyles<ViewStyle>) =>
+  StyleSheet.create(styles);
 
 export const margins = StyleSheet.create({
   m8: { margin: 8 },

@@ -6,7 +6,7 @@ type ThemeContext = {
   setTheme: (theme: Theme) => void;
 };
 
-const ThemeCtx = createContext<ThemeContext>({
+export const ThemeCtx = createContext<ThemeContext>({
   theme: lightTheme,
   setTheme: () => null,
 });
