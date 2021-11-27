@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
 import { StyleProp, TextStyle } from "react-native";
 import { TextInput } from "react-native-paper";
+import { RenderProps } from "react-native-paper/lib/typescript/components/TextInput/types";
 
 type Props = {
   onBlur?: () => void;
@@ -10,6 +12,7 @@ type Props = {
   placeholder?: string;
   onChangeText: (val: string) => void;
   style?: StyleProp<TextStyle>;
+  render?: ((props: RenderProps) => ReactNode) | undefined;
 };
 
 export const TextField = ({
@@ -21,17 +24,21 @@ export const TextField = ({
   capitalize,
   onBlur,
   onFocus,
+  render
 }: Props) => {
   return (
     <TextInput
-      onFocus={onFocus}
-      onBlur={onBlur}
-      autoCapitalize={capitalize ? "characters" : undefined}
-      label={label}
-      style={style}
-      value={value}
-      onChangeText={onChangeText}
-      placeholder={placeholder}
+    {...{
+      render,
+      onFocus,
+      onBlur,
+      autoCapitalize: capitalize ? "characters" : undefined,
+      label,
+      style,
+      value,
+      onChangeText,
+      placeholder
+    }}
     />
   );
 };
