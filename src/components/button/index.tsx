@@ -8,12 +8,14 @@ import LinearGradient from "react-native-linear-gradient";
 import { containers } from "../..";
 import { Body } from "../typography";
 import { StyleSheet } from "react-native";
+import { typeContainerStyles, typeTextStyles} from "./styles"
 
 type Props = {
   style?: StyleProp<ViewStyle>;
   type: "primary" | "secondary" | "disabled";
   title?: string;
   onPress?: (e?: GestureResponderEvent) => void;
+  isHovering?: boolean | undefined
 };
 
 const styles = StyleSheet.create({
@@ -25,24 +27,54 @@ const styles = StyleSheet.create({
   },
 });
 
+const getHoverStyle = (type: string) => {
+  return {
+    container: {
+      ...(typeContainerStyles as any)[type],
+      ...(typeContainerStyles as any)[`${type}_hover`]
+    },
+    text: {
+      ...(typeTextStyles as any)[type],
+      ...(typeTextStyles as any)[`${type}_hover`]
+    }
+  };
+};
+
+const getBaselineStyle = (type: string) => {
+  return {
+    container: {
+      ...(typeContainerStyles as any)[type]
+    },
+    text: {
+      ...(typeTextStyles as any)[type]
+    }
+  };
+};
+
+// will default to primary style if incorrect type is given
+const getStyles = (type: string, isHovering: boolean) => (isHovering ? getHoverStyle(type) : getBaselineStyle(type));
+
 export const Button: React.FC<Props> = ({
   title,
   children,
   onPress,
   style,
+  type,
+  isHovering= false
 }) => {
+  const typeStyle = getStyles(type, isHovering);
   return (
     <LinearGradient
-      style={[styles.container, style]}
+      style={[styles.container, typeStyle.container, style]}
       start={{ x: 0, y: 1 }}
       end={{ x: 1, y: 1 }}
-      colors={["#004EFF", "#0085FF"]}
+      colors={typeStyle.container.gradientColors}
     >
       <TouchableOpacity
         style={[containers.fullHeight, containers.fullWidth, containers.center]}
         onPress={onPress}
       >
-        {title ? <Body>{title}</Body> : children}
+        {title ? <Body style={typeStyle.text} color={typeStyle.text.color}>{title}</Body> : children}
       </TouchableOpacity>
     </LinearGradient>
   );
