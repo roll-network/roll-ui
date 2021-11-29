@@ -194,10 +194,10 @@ export const text = StyleSheet.create({
     textAlign: "right",
   },
   body: {
-    fontFamily: "",
+    fontWeight: "normal",
   },
   bold: {
-    fontFamily: "",
+    fontWeight: "bold",
   },
   h1: {
     fontSize: 36,
