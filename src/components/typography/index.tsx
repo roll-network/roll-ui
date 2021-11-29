@@ -8,13 +8,13 @@ import {
 } from "react-native";
 
 type Weights = {
-  [key: string]: FontFamily;
-  bold: FontFamily;
-  regular: FontFamily;
+  [key: string]: FontWeight;
+  bold: FontWeight;
+  regular: FontWeight;
 };
 
-type FontFamily = {
-  fontFamily: string;
+type FontWeight = {
+  fontWeight: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
 };
 
 const weights: Weights = {
