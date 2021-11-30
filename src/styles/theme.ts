@@ -1,6 +1,7 @@
 import { ghostWhite, white, grey } from ".";
 
 export type Theme = {
+  backgroundPrimary: string;
   backgroundPage: string;
   backgroundModal: string;
   backgroundHeader: string;
@@ -8,6 +9,7 @@ export type Theme = {
 };
 
 export const lightTheme: Theme = {
+  backgroundPrimary: white,
   backgroundPage: ghostWhite,
   backgroundModal: white,
   backgroundHeader: white,
