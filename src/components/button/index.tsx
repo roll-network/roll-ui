@@ -8,14 +8,14 @@ import LinearGradient from "react-native-linear-gradient";
 import { containers } from "../..";
 import { Body } from "../typography";
 import { StyleSheet } from "react-native";
-import { typeContainerStyles, typeTextStyles} from "./styles"
+import { typeContainerStyles, typeTextStyles } from "./styles";
 
 type Props = {
   style?: StyleProp<ViewStyle>;
   type: "primary" | "secondary" | "disabled";
   title?: string;
   onPress?: (e?: GestureResponderEvent) => void;
-  isHovering?: boolean | undefined
+  isHovering?: boolean | undefined;
 };
 
 const styles = StyleSheet.create({
@@ -31,28 +31,29 @@ const getHoverStyle = (type: string) => {
   return {
     container: {
       ...(typeContainerStyles as any)[type],
-      ...(typeContainerStyles as any)[`${type}_hover`]
+      ...(typeContainerStyles as any)[`${type}_hover`],
     },
     text: {
       ...(typeTextStyles as any)[type],
-      ...(typeTextStyles as any)[`${type}_hover`]
-    }
+      ...(typeTextStyles as any)[`${type}_hover`],
+    },
   };
 };
 
 const getBaselineStyle = (type: string) => {
   return {
     container: {
-      ...(typeContainerStyles as any)[type]
+      ...(typeContainerStyles as any)[type],
     },
     text: {
-      ...(typeTextStyles as any)[type]
-    }
+      ...(typeTextStyles as any)[type],
+    },
   };
 };
 
 // will default to primary style if incorrect type is given
-const getStyles = (type: string, isHovering: boolean) => (isHovering ? getHoverStyle(type) : getBaselineStyle(type));
+const getStyles = (type: string, isHovering: boolean) =>
+  isHovering ? getHoverStyle(type) : getBaselineStyle(type);
 
 export const Button: React.FC<Props> = ({
   title,
@@ -60,7 +61,7 @@ export const Button: React.FC<Props> = ({
   onPress,
   style,
   type,
-  isHovering= false
+  isHovering = false,
 }) => {
   const typeStyle = getStyles(type, isHovering);
   return (
@@ -74,7 +75,17 @@ export const Button: React.FC<Props> = ({
         style={[containers.fullHeight, containers.fullWidth, containers.center]}
         onPress={onPress}
       >
-        {title ? <Body style={typeStyle.text} color={typeStyle.text.color}>{title}</Body> : children}
+        {title ? (
+          <Body
+            weight="bold"
+            style={typeStyle.text}
+            color={typeStyle.text.color}
+          >
+            {title}
+          </Body>
+        ) : (
+          children
+        )}
       </TouchableOpacity>
     </LinearGradient>
   );
