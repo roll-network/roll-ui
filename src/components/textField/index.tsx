@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { StyleProp, TextStyle } from "react-native";
 import { TextInput } from "react-native-paper";
 import { RenderProps } from "react-native-paper/lib/typescript/components/TextInput/types";
+import { useTheme } from "../..";
 
 type Props = {
   onBlur?: () => void;
@@ -24,21 +25,24 @@ export const TextField = ({
   capitalize,
   onBlur,
   onFocus,
-  render
+  render,
 }: Props) => {
+  const theme = useTheme();
   return (
     <TextInput
-    {...{
-      render,
-      onFocus,
-      onBlur,
-      autoCapitalize: capitalize ? "characters" : undefined,
-      label,
-      style,
-      value,
-      onChangeText,
-      placeholder
-    }}
+      {...{
+        render,
+        onFocus,
+        onBlur,
+        autoCapitalize: capitalize ? "characters" : undefined,
+        label,
+        style: [{ backgroundColor: "transparent" }, style],
+        value,
+        onChangeText,
+        placeholder,
+        activeOutlineColor: theme.highlight,
+        activeUnderlineColor: theme.highlight,
+      }}
     />
   );
 };
