@@ -5,3 +5,4 @@ export const ghostWhite = "#f7f8fb";
 export const white = "#ffffff";
 export const grey = "#7C7C7C";
 export const charcoalBlack = "#212529";
+export const crimson = "#d0031c";
