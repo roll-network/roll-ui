@@ -12,7 +12,7 @@ import { typeContainerStyles, typeTextStyles } from "./styles";
 
 type Props = {
   style?: StyleProp<ViewStyle>;
-  type: "primary" | "secondary" | "disabled";
+  type: "primary" | "secondary" | "minimal" | "disabled";
   title?: string;
   onPress?: (e?: GestureResponderEvent) => void;
   isHovering?: boolean | undefined;
@@ -74,6 +74,7 @@ export const Button: React.FC<Props> = ({
       <TouchableOpacity
         style={[containers.fullHeight, containers.fullWidth, containers.center]}
         onPress={onPress}
+        disabled={type === "disabled"}
       >
         {title ? (
           <Body
