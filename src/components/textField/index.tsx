@@ -5,6 +5,7 @@ import { RenderProps } from "react-native-paper/lib/typescript/components/TextIn
 import { useTheme } from "../..";
 
 type Props = {
+  disabled?: boolean;
   onBlur?: () => void;
   onFocus?: () => void;
   capitalize?: boolean;
@@ -26,11 +27,13 @@ export const TextField = ({
   onBlur,
   onFocus,
   render,
+  disabled,
 }: Props) => {
   const theme = useTheme();
   return (
     <TextInput
       {...{
+        disabled,
         render,
         onFocus,
         onBlur,
