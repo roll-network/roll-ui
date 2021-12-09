@@ -9,6 +9,19 @@ export const makeTextStyles = (styles: StyleSheet.NamedStyles<TextStyle>) =>
 export const makeViewStyles = (styles: StyleSheet.NamedStyles<ViewStyle>) =>
   StyleSheet.create(styles);
 
+export const openSans = {
+  reg: "OpenSans-Regular",
+  bold: "OpenSans-Bold",
+  boldItalic: "OpenSans-BoldItalic",
+  extraBold: "OpenSans-ExtraBold",
+  extraBoldItalic: "OpenSans-ExtraBoldItalic",
+  italic: "OpenSans-Italic",
+  light: "OpenSans-Light",
+  lightItalic: "OpenSans-LightItalic",
+  semiBold: "OpenSans-SemiBold",
+  semiBoldItalic: "OpenSans-SemiBoldItalic"
+};
+
 export const margins = StyleSheet.create({
   m8: { margin: 8 },
   m16: { margin: 16 },
@@ -194,10 +207,10 @@ export const text = StyleSheet.create({
     textAlign: "right",
   },
   body: {
-    fontWeight: "normal",
+    fontFamily: openSans.reg
   },
   bold: {
-    fontWeight: "bold",
+    fontFamily: openSans.bold
   },
   h1: {
     fontSize: 36,
