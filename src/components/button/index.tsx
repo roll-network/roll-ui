@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     maxWidth: 600,
     minWidth: 100,
     height: 48,
+    paddingHorizontal: 24,
   },
 });
 
