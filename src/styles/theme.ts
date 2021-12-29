@@ -1,4 +1,4 @@
-import { ghostWhite, white, grey, crimson, dodgerBlue } from ".";
+import { ghostWhite, white, grey, crimson, dodgerBlue, solitudeGrey } from ".";
 
 export type Theme = {
   backgroundPrimary: string;
@@ -8,6 +8,7 @@ export type Theme = {
   textMuted: string;
   textError: string;
   highlight: string;
+  backgroundGrey: string;
 };
 
 export const lightTheme: Theme = {
@@ -18,4 +19,5 @@ export const lightTheme: Theme = {
   textMuted: grey,
   textError: crimson,
   highlight: dodgerBlue,
+  backgroundGrey: solitudeGrey,
 };
