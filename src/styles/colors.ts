@@ -6,3 +6,4 @@ export const white = "#ffffff";
 export const grey = "#7C7C7C";
 export const charcoalBlack = "#212529";
 export const crimson = "#d0031c";
+export const orange = "#f7b217";
