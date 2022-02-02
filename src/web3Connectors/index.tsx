@@ -20,7 +20,7 @@ export class Web3Connectors {
   constructor(
     fortmaticApiKey: string,
     portisDappID: string,
-    defaultChainID: number,
+    defaultChainID: number = CHAIN_ID_MAIN_NET,
     supportedChainIDs: number[] = SUPPORTED_CHAIN_IDS
   ) {
     this.supportedChainIDs = supportedChainIDs;
