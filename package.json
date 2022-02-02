@@ -9,14 +9,16 @@
     "react-native": ">=0.66.3"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@ethersproject/providers": "^5.5.3",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/fortmatic-connector": "^6.1.6",
+    "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/network-connector": "^6.2.9",
+    "@web3-react/portis-connector": "^6.2.11",
+    "@web3-react/walletconnect-connector": "^6.2.10",
+    "ethers": "^5.5.4",
     "react": "^17.0.2",
+    "react-activity": "^2.1.1",
     "react-dom": "^17.0.2",
     "react-native": "^0.66.3",
     "react-native-linear-gradient": "^2.5.6",
@@ -31,7 +33,9 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": [
@@ -52,7 +56,22 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@babel/core": "^7.16.12",
+    "@storybook/addon-react-native-web": "^0.0.18",
+    "@storybook/addon-actions": "^6.4.18",
+    "@storybook/addon-essentials": "^6.4.18",
+    "@storybook/addon-links": "^6.4.18",
+    "@storybook/preset-create-react-app": "^4.0.0",
+    "@storybook/react": "^6.4.18",
     "@types/react-native": "^0.66.4",
+    "babel-loader": "^8.2.3",
     "babel-plugin-import": "^1.13.3",
     "babel-preset-react-app": "^10.0.0",
     "customize-cra": "^1.0.0",
