@@ -8,20 +8,21 @@ import { Activity } from "../../atoms/activity";
 import { shortenAddress } from "../../utils/web3";
 import { useInactiveListener } from "../../hooks/web3";
 
+export type HandleWeb3Connect = (c: AbstractConnector) => void;
+
 type Props = {
   connectors: Web3Connectors;
   buttonStyle?: any; // TODO define type properly
-  onConnect: (handleConnect: (c: AbstractConnector) => void) => void;
+  onConnect: (handleConnect: HandleWeb3Connect) => void;
 };
 
-export const ConnectWallet = ({
+export const ConnectWeb3Button = ({
   connectors,
   buttonStyle,
   onConnect,
 }: Props) => {
   const { activate, connector, account } = useWeb3React<Web3Provider>();
   const [isActivating, setIsActivating] = useState(true);
-  //   const modal = useModal();
   useInactiveListener(connectors);
 
   const handleConnect = (c: AbstractConnector) => {
