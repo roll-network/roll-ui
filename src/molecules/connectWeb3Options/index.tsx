@@ -7,9 +7,8 @@ import { ReactComponent as FortmaticLogo } from "../../assets/svg/fortmaticLogo.
 import { ReactComponent as PortisLogo } from "../../assets/svg/portisLogo.svg";
 import { SubHeader, Body } from "../../atoms/typography";
 import { text, useTheme } from "../..";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ReactComponent as Close } from "../../assets/svg/close.svg";
-import { useMemo } from "@storybook/addons";
 import StyledLink from "../../atoms/styledLink";
 
 type WalletOption = {
@@ -75,7 +74,7 @@ export const ConnectWeb3Options = ({
   };
 
   return (
-    <div style={{ minWidth: 400 }}>
+    <div style={{ minWidth: 400, maxWidth: 600 }}>
       <div className="flex justify-between p-4">
         <SubHeader weight="bold">Connect Wallet</SubHeader>
         <Close className="cursor-pointer" onClick={onClose} />
@@ -117,7 +116,7 @@ const ConnectWalletOption = ({ title, logo, active, onClick }: OptionProps) => {
   return (
     <div
       onClick={onClick}
-      className="flex flex-row justify-between rounded p-4 mb-4 w-full"
+      className="flex flex-row justify-between rounded p-4 mb-4 w-full cursor-pointer"
       style={{
         borderWidth: 1,
         borderColor: active ? theme.highlight : undefined,
