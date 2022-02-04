@@ -1,12 +1,11 @@
 import { AbstractConnector } from "@web3-react/abstract-connector";
 import { Web3Connectors } from "../../web3Connectors";
-import MetaMaskLogo from "../../assets/svg/metamaskLogo.svg";
-import WalletConnectLogo from "../../assets/svg/walletConnectLogo.svg";
-import CoinBaseLogo from "../../assets/svg/coinbaseWalletLogo.svg";
-import FortmaticLogo from "../../assets/svg/fortmaticLogo.svg";
-import PortisLogo from "../../assets/svg/portisLogo.svg";
-import Close from "../../assets/svg/close.svg";
-
+import { ReactComponent as MetaMaskLogo } from "../../assets/svg/metamaskLogo.svg";
+import { ReactComponent as WalletConnectLogo } from "../../assets/svg/walletConnectLogo.svg";
+import { ReactComponent as CoinBaseLogo } from "../../assets/svg/coinbaseWalletLogo.svg";
+import { ReactComponent as FortmaticLogo } from "../../assets/svg/fortmaticLogo.svg";
+import { ReactComponent as PortisLogo } from "../../assets/svg/portisLogo.svg";
+import { ReactComponent as Close } from "../../assets/svg/close.svg";
 import { SubHeader, Body } from "../../atoms/typography";
 import { text, useTheme } from "../..";
 import { useState, useMemo } from "react";
