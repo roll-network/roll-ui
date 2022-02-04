@@ -61,7 +61,10 @@ export const ConnectWeb3Button = ({
 
   if (account) {
     return (
-      <div className="flex h-8 self-center items-center bg-gray-200 p-2 rounded-lg">
+      <div
+        className="flex h-8 self-center items-center bg-gray-200 p-2 rounded-lg"
+        // style={{ alignSelf: "flex-start" }}
+      >
         <p className="w-28 cursor-pointer">{shortenAddress(account)}</p>
       </div>
     );
