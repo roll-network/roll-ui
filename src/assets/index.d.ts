@@ -1,5 +1,7 @@
 declare module "*.svg" {
-  import { ReactElement, SVGProps } from "react";
-  const content: (props: SVGProps<SVGElement>) => ReactElement;
-  export default content;
+  import React = require("react");
+  const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
+  export default ReactComponent;
 }
+
+declare module "*.ttf";
