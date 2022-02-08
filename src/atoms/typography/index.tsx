@@ -6,6 +6,8 @@ import {
   FONT_SIZE_BODY,
   FONT_SIZE_HEADER,
   FONT_SIZE_SUB_HEADER,
+  FONT_SIZE_LARGE_HEADER,
+  FONT_SIZE_TITLE,
 } from "../../styles";
 import {
   GestureResponderEvent,
@@ -27,6 +29,12 @@ type FontFamily = {
 const weights: Weights = {
   bold: text.bold,
   regular: text.body,
+};
+
+export const truncateMaxChars = (str: string, maxlimit = 100) => {
+  return str && str.length > maxlimit
+    ? `${str.substring(0, maxlimit - 3)}...`
+    : str;
 };
 
 type TypographyProps = {
@@ -55,6 +63,8 @@ export const TypographyBase = React.forwardRef(
     ref
   ) => (
     <Text
+      // react's ref does not match react-native ref type - react native using legacy ref.
+      // perhaps there is a workaround to properly type it?
       // @ts-ignore
       ref={ref}
       numberOfLines={numberOfLines}
@@ -87,106 +97,10 @@ export const Header = ({ ...props }: TypographyProps) => (
   <TypographyBase {...props} fontSize={FONT_SIZE_HEADER} />
 );
 
-// export const Caption = ({
-//   children,
-//   style,
-//   weight = "regular",
-//   onPress,
-//   color,
-//   numberOfLines,
-// }: TypographyProps) => (
-//   <Text
-//     numberOfLines={numberOfLines}
-//     testID="typographyBody"
-//     onPress={onPress}
-//     style={[text.caption, weights[weight], style, { color }]}
-//   >
-//     {children}
-//   </Text>
-// );
-
-// export const Body = ({
-//   children,
-//   style,
-//   weight = "regular",
-//   onPress,
-//   color,
-//   numberOfLines,
-// }: TypographyProps) => (
-//   <Text
-//     // data-tip
-//     // data-for="value-tooltip"
-//     numberOfLines={numberOfLines}
-//     testID="typographyBody"
-//     onPress={onPress}
-//     style={[text.body, weights[weight], style, { color }]}
-//   >
-//     {children}
-//   </Text>
-// );
-
-// export const SubHeader = ({
-//   children,
-//   weight = "regular",
-//   style,
-//   color,
-//   onPress,
-//   numberOfLines,
-// }: TypographyProps) => (
-//   <Text
-//     numberOfLines={numberOfLines}
-//     onPress={onPress}
-//     testID="subheader"
-//     style={[text.body, text.h6, weights[weight], style, { color }]}
-//   >
-//     {children}
-//   </Text>
-// );
-
-// export const Header = ({
-//   children,
-//   weight = "regular",
-//   color,
-//   style,
-//   numberOfLines,
-// }: TypographyProps) => (
-//   <Text
-//     testID="header"
-//     numberOfLines={numberOfLines}
-//     style={[text.body, text.h5, weights[weight], { color }, style]}
-//   >
-//     {children}
-//   </Text>
-// );
-
-export const LargeHeader = ({
-  children,
-  weight = "regular",
-  color,
-  style,
-}: TypographyProps) => (
-  <Text
-    testID="header"
-    style={[text.body, text.h4, weights[weight], { color }, style]}
-  >
-    {children}
-  </Text>
+export const LargeHeader = ({ ...props }: TypographyProps) => (
+  <TypographyBase {...props} fontSize={FONT_SIZE_LARGE_HEADER} />
 );
 
-export const Title = ({
-  children,
-  style,
-  weight = "regular",
-  color,
-  onPress,
-}: TypographyProps) => (
-  <Text onPress={onPress} style={[text.h3, weights[weight], { color }, style]}>
-    {children}
-  </Text>
+export const Title = ({ ...props }: TypographyProps) => (
+  <TypographyBase {...props} fontSize={FONT_SIZE_TITLE} />
 );
-
-export const truncateMaxChars = (str: string, maxlimit = 100) => {
-  return str && str.length > maxlimit
-    ? `${str.substring(0, maxlimit - 3)}...`
-    : str;
-};
