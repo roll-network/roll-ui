@@ -10,6 +10,7 @@ type Props = {
   decimals: number;
   maxDigits?: number;
   style?: StyleProp<TextStyle>;
+  renderValue?: (displayVal: string) => React.ReactElement;
 };
 
 export const Value = ({
@@ -17,11 +18,16 @@ export const Value = ({
   decimals,
   maxDigits = DEFAULT_MAX_DIGITS,
   style,
+  renderValue,
 }: Props) => {
   return (
     <ToolTip placement="top" title={commafy(displayValue, decimals)}>
       <span>
-        <Body style={style}>{commafy(displayValue, maxDigits)}</Body>
+        {renderValue ? (
+          renderValue(commafy(displayValue, maxDigits))
+        ) : (
+          <Body style={style}>{commafy(displayValue, maxDigits)}</Body>
+        )}
       </span>
     </ToolTip>
   );
