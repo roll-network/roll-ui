@@ -19,7 +19,7 @@ export const openSans = {
   light: "OpenSans-Light",
   lightItalic: "OpenSans-LightItalic",
   semiBold: "OpenSans-SemiBold",
-  semiBoldItalic: "OpenSans-SemiBoldItalic"
+  semiBoldItalic: "OpenSans-SemiBoldItalic",
 };
 
 export const margins = StyleSheet.create({
@@ -199,6 +199,12 @@ export const containers = StyleSheet.create({
   },
 });
 
+export const FONT_SIZE_SUB_CAPTION = 8;
+export const FONT_SIZE_CAPTION = 12;
+export const FONT_SIZE_BODY = 16;
+export const FONT_SIZE_SUB_HEADER = 20;
+export const FONT_SIZE_HEADER = 24;
+
 export const text = StyleSheet.create({
   center: {
     textAlign: "center",
@@ -207,10 +213,10 @@ export const text = StyleSheet.create({
     textAlign: "right",
   },
   body: {
-    fontFamily: openSans.reg
+    fontFamily: openSans.reg,
   },
   bold: {
-    fontFamily: openSans.bold
+    fontFamily: openSans.bold,
   },
   h1: {
     fontSize: 36,
