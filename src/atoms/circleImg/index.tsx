@@ -21,8 +21,10 @@ const styles = StyleSheet.create({
   },
 });
 
+export const DEFAULT_CIRCLE_IMG_SIZE = 48;
+
 export const CircleImg = ({ size, style, uri, source }: Props) => {
-  const imgSize = useRef(size || 48);
+  const imgSize = useRef(size || DEFAULT_CIRCLE_IMG_SIZE);
   return (
     <Image
       source={source ? source : { uri }}
