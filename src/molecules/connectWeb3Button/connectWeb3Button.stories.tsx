@@ -1,3 +1,4 @@
+import { Web3ReactProvider } from "@web3-react/core";
 import { useState } from "react";
 import { ConnectWeb3Button, HandleWeb3Connect } from ".";
 import { titleBuilder } from "../../../.storybook/utils";
@@ -8,6 +9,7 @@ import {
   Web3Connectors,
 } from "../../web3Connectors";
 import { ConnectWeb3Options } from "../connectWeb3Options";
+import { Web3Provider } from "@ethersproject/providers";
 
 const conf = {
   title: titleBuilder.molecules("ConnectWeb3Button"),
@@ -28,25 +30,25 @@ export const Default = () => {
 
   const fallback = () => alert("handle connect is null");
 
-  console.log("handle connect: ", handleConnect);
-
   return withThemeProvider(
-    <div>
-      <ConnectWeb3Button
-        onConnect={(hc) => {
-          setHandleConnect(() => hc);
-          setShowOptions(true);
-        }}
-        connectors={connectors}
-      />
-      {showOptions && (
-        <ConnectWeb3Options
-          onClose={() => setShowOptions(!showOptions)}
+    <Web3ReactProvider getLibrary={(provider) => new Web3Provider(provider)}>
+      <div>
+        <ConnectWeb3Button
+          onConnect={(hc) => {
+            setHandleConnect(() => hc);
+            setShowOptions(true);
+          }}
           connectors={connectors}
-          handleConnect={handleConnect || fallback}
         />
-      )}
-    </div>
+        {showOptions && (
+          <ConnectWeb3Options
+            onClose={() => setShowOptions(!showOptions)}
+            connectors={connectors}
+            handleConnect={handleConnect || fallback}
+          />
+        )}
+      </div>
+    </Web3ReactProvider>
   );
 };
 

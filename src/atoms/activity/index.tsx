@@ -1,19 +1,27 @@
-import { Spinner } from "react-activity";
+import { StyleProp, ViewStyle } from "react-native";
+import { ActivityIndicator } from "react-native-paper";
 import { useTheme } from "../..";
 
 type Props = {
-  style?: React.CSSProperties;
+  // style?: React.CSSProperties;
+  size?: "small" | "large" | number;
+  style?: StyleProp<ViewStyle>;
 };
 
-export const Activity = ({ style }: Props) => {
+// };
+
+export const Activity = ({ style, size }: Props) => {
   const theme = useTheme();
   return (
-    <Spinner
-      style={
-        style
-          ? { color: theme.highlight, ...style }
-          : { color: theme.highlight }
-      }
-    />
+    <ActivityIndicator color={theme.highlight} size={size} style={style} />
   );
+  // return (
+  //   <Spinner
+  //     style={
+  //       style
+  //         ? { color: theme.highlight, ...style }
+  //         : { color: theme.highlight }
+  //     }
+  //   />
+  // );
 };

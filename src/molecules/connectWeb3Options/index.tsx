@@ -5,10 +5,10 @@ import { ReactComponent as WalletConnectLogo } from "../../assets/svg/walletConn
 import { ReactComponent as CoinBaseLogo } from "../../assets/svg/coinbaseWalletLogo.svg";
 import { ReactComponent as FortmaticLogo } from "../../assets/svg/fortmaticLogo.svg";
 import { ReactComponent as PortisLogo } from "../../assets/svg/portisLogo.svg";
+import { ReactComponent as Close } from "../../assets/svg/close.svg";
 import { SubHeader, Body } from "../../atoms/typography";
 import { text, useTheme } from "../..";
 import { useState, useMemo } from "react";
-import { ReactComponent as Close } from "../../assets/svg/close.svg";
 import StyledLink from "../../atoms/styledLink";
 
 type WalletOption = {

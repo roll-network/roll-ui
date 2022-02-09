@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Web3Provider } from "@ethersproject/providers";
 import { AbstractConnector } from "@web3-react/abstract-connector";
 import { Web3Connectors } from "../../web3Connectors";
-import { Button } from "../..";
+import { Body, Button } from "../..";
 import { Activity } from "../../atoms/activity";
 import { shortenAddress } from "../../utils/web3";
 import { useInactiveListener } from "../../hooks/web3";
@@ -62,7 +62,7 @@ export const ConnectWeb3Button = ({
   if (account) {
     return (
       <div className="flex h-8 self-center items-center bg-gray-200 p-2 rounded-lg">
-        <p className="w-28 cursor-pointer">{shortenAddress(account)}</p>
+        <Body weight="bold">{shortenAddress(account)}</Body>
       </div>
     );
   }
