@@ -9,39 +9,40 @@ const ethEventAccountsChange = "accountsChanged";
 // TODO need to come up with strategy for shared state management
 // avoid making assumptions about what state management frameworks are being used
 // maybe callbacks?
-export const useInactiveListener = (connectors: Web3Connectors) => {
+export const useInactiveListener = (
+  connectors: Web3Connectors | null,
+  onChangeChain?: () => void,
+  onChangeAccount?: () => void
+) => {
   const { error, activate } = useWeb3React();
-  //   const { dispatch } = useBalanceCtx();
-  //   const globalDispatch = useGlobalDispatch();
-
-  // placeholders
-  const dispatch = () => null;
-  const globalDispatch = () => null;
 
   const handleReActivate = useCallback(
     (message: string, first: () => void) => {
       first();
+      if (!connectors) return;
       activate(connectors.injected, undefined, true).catch((err) => {
         console.error(message, err);
       });
     },
-    [activate]
+    [activate, connectors]
   );
 
-  const onChangeChain = useCallback(() => {
-    // handleReActivate("failed to re-activate after network changed", () =>
-    //   globalDispatch(actionClearState())
-    // );
-  }, [handleReActivate, globalDispatch]);
+  const _onChangeChain = useCallback(() => {
+    handleReActivate(
+      "failed to re-activate after network changed",
+      () => onChangeChain && onChangeChain
+    );
+  }, [handleReActivate, onChangeChain]);
 
-  const onChangeAccount = useCallback(
+  const _onChangeAccount = useCallback(
     (accounts: string[]) => {
-      //   accounts.length > 0 &&
-      // handleReActivate("failed to re-active after account changed", () =>
-      //   dispatch(actionClearBalances())
-      // );
+      accounts.length > 0 &&
+        handleReActivate(
+          "failed to re-active after account changed",
+          () => onChangeAccount && onChangeAccount()
+        );
     },
-    [handleReActivate, dispatch]
+    [handleReActivate, onChangeAccount]
   );
 
   useEffect(() => {
@@ -49,16 +50,16 @@ export const useInactiveListener = (connectors: Web3Connectors) => {
     const { ethereum } = window;
 
     if (ethereum && ethereum.on && !error) {
-      ethereum.on(ethEventChainIDChanged, onChangeChain);
-      ethereum.on(ethEventChainChanged, onChangeChain);
-      ethereum.on(ethEventAccountsChange, onChangeAccount);
+      ethereum.on(ethEventChainIDChanged, _onChangeChain);
+      ethereum.on(ethEventChainChanged, _onChangeChain);
+      ethereum.on(ethEventAccountsChange, _onChangeAccount);
 
       return () => {
         if (!ethereum || !ethereum.removeListener) return;
-        ethereum.removeListener(ethEventChainIDChanged, onChangeChain);
-        ethereum.removeListener(ethEventChainChanged, onChangeChain);
-        ethereum.removeListener(ethEventAccountsChange, onChangeAccount);
+        ethereum.removeListener(ethEventChainIDChanged, _onChangeChain);
+        ethereum.removeListener(ethEventChainChanged, _onChangeChain);
+        ethereum.removeListener(ethEventAccountsChange, _onChangeAccount);
       };
     }
-  }, [error, handleReActivate, onChangeAccount, onChangeChain]);
+  }, [error, handleReActivate, _onChangeAccount, _onChangeChain]);
 };
