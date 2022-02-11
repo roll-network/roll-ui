@@ -1,5 +1,6 @@
+import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { Web3Connectors } from "../web3Connectors";
 
 const ethEventChainIDChanged = "chainIdChanged";
@@ -62,4 +63,23 @@ export const useInactiveListener = (
       };
     }
   }, [error, handleReActivate, _onChangeAccount, _onChangeChain]);
+};
+
+export const useLibrary = () => {
+  const { library } = useWeb3React<Web3Provider>();
+  return library;
+};
+
+export const useSigner = () => {
+  const library = useLibrary();
+  const signer = useMemo(
+    () => (library ? library.getSigner() : undefined),
+    [library]
+  );
+  return signer;
+};
+
+export const useEthAddress = () => {
+  const { account } = useWeb3React<Web3Provider>();
+  return account;
 };
