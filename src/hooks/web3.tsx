@@ -1,5 +1,5 @@
 import { Web3Provider } from "@ethersproject/providers";
-import { useWeb3React } from "@web3-react/core";
+import { useWeb3React } from "web3-react-core";
 import { useCallback, useEffect, useMemo } from "react";
 import { Web3Connectors } from "../web3Connectors";
 
