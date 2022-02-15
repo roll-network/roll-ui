@@ -7,9 +7,6 @@ const ethEventChainIDChanged = "chainIdChanged";
 const ethEventChainChanged = "chainChanged";
 const ethEventAccountsChange = "accountsChanged";
 
-// TODO need to come up with strategy for shared state management
-// avoid making assumptions about what state management frameworks are being used
-// maybe callbacks?
 export const useInactiveListener = (
   connectors: Web3Connectors | null,
   onChangeChain?: () => void,
