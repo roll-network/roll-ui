@@ -1,5 +1,5 @@
 import { Web3Provider as EthersWeb3Provider } from "@ethersproject/providers";
-import { Web3ReactProvider } from "@web3-react/core";
+import { Web3ReactProvider } from "web3-react-core";
 import {
   Web3ConnectorProvider,
   Web3ConnectorProviderProps,

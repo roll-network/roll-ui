@@ -3090,7 +3090,7 @@
     "@ethersproject/logger" "^5.5.0"
     "@ethersproject/properties" "^5.5.0"
 
-"@ethersproject/address@5.5.0", "@ethersproject/address@^5.5.0":
+"@ethersproject/address@5.5.0", "@ethersproject/address@^5.4.0", "@ethersproject/address@^5.5.0":
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/@ethersproject/address/-/address-5.5.0.tgz#bcc6f576a553f21f3dd7ba17248f81b473c9c78f"
   integrity sha512-l4Nj0eWlTUh6ro5IbPTgbpT4wRbdH5l8CQf7icF7sb/SI3Nhd9Y9HzhonTSTi6CefI0necIw7LJqQPopPLZyWw==
@@ -3241,7 +3241,7 @@
   dependencies:
     "@ethersproject/logger" "^5.5.0"
 
-"@ethersproject/providers@5.5.3", "@ethersproject/providers@^5.5.3":
+"@ethersproject/providers@5.5.3", "@ethersproject/providers@^5.4.5":
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/@ethersproject/providers/-/providers-5.5.3.tgz#56c2b070542ac44eb5de2ed3cf6784acd60a3130"
   integrity sha512-ZHXxXXXWHuwCQKrgdpIkbzMNJMvs+9YWemanwp1fA7XZEv7QlilseysPvQe0D7Q7DlkJX/w/bGA1MdgK2TbGvA==
@@ -5850,16 +5850,14 @@
   dependencies:
     "@web3-react/types" "^6.0.7"
 
-"@web3-react/core@^6.1.9":
-  version "6.1.9"
-  resolved "https://registry.yarnpkg.com/@web3-react/core/-/core-6.1.9.tgz#5f5daa0545a8ea07770a699580ced552583afc97"
-  integrity sha512-P877DslsbAkWIlMANpWiK7pCvNwlz0kJC0EGckuVh0wlA23J4UnFxq6xyOaxkxaDCu14rA/tAO0NbwjcXTQgSA==
+"@web3-react/core@8.0.16-alpha.0":
+  version "8.0.16-alpha.0"
+  resolved "https://registry.yarnpkg.com/@web3-react/core/-/core-8.0.16-alpha.0.tgz#7e8a2e28ee492f40e482f609fd8c353b0bafa8c3"
+  integrity sha512-eRkZxSdOR4c0U0IpRnWf/5djWfmtLQ52RmpwwvAozxIEyM6UANsfvuyV3j8LSNIC0kWwZNl5fcOWTHQB6vetcg==
   dependencies:
-    "@ethersproject/keccak256" "^5.0.0-beta.130"
-    "@web3-react/abstract-connector" "^6.0.7"
-    "@web3-react/types" "^6.0.7"
-    tiny-invariant "^1.0.6"
-    tiny-warning "^1.0.3"
+    "@web3-react/store" "^8.0.16-alpha.0"
+    "@web3-react/types" "^8.0.16-alpha.0"
+    zustand "^4.0.0-beta.0"
 
 "@web3-react/fortmatic-connector@^6.1.6":
   version "6.1.6"
@@ -5899,10 +5897,26 @@
     "@web3-react/types" "^6.0.7"
     tiny-invariant "^1.0.6"
 
+"@web3-react/store@^8.0.16-alpha.0":
+  version "8.0.16-alpha.0"
+  resolved "https://registry.yarnpkg.com/@web3-react/store/-/store-8.0.16-alpha.0.tgz#05b1a7ddfdaceba98bb9b878ea81616de88acce0"
+  integrity sha512-U5jX4kyaErGYyvxNv6FCb73OwqS6Wy/iQOut/JAzx1xJ/Gi31vsF1JyIt+y+z5YZty1hU1Bh5T0jNXp+9S75Rw==
+  dependencies:
+    "@ethersproject/address" "^5.4.0"
+    "@web3-react/types" "^8.0.16-alpha.0"
+    zustand "^4.0.0-beta.0"
+
 "@web3-react/types@^6.0.7":
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/@web3-react/types/-/types-6.0.7.tgz#34a6204224467eedc6123abaf55fbb6baeb2809f"
   integrity sha512-ofGmfDhxmNT1/P/MgVa8IKSkCStFiyvXe+U5tyZurKdrtTDFU+wJ/LxClPDtFerWpczNFPUSrKcuhfPX1sI6+A==
+
+"@web3-react/types@^8.0.16-alpha.0":
+  version "8.0.16-alpha.0"
+  resolved "https://registry.yarnpkg.com/@web3-react/types/-/types-8.0.16-alpha.0.tgz#bc9eeaf24d6a3e43cd262a90b4f48d1e4c95bfa4"
+  integrity sha512-vVVUeV0xNaYpn+35nbU2qmfELU5c6nioSTp5esRX3qChIc9eHss9r43AopTMOGiS6keC/fjzuSXOxK33nRBIyA==
+  dependencies:
+    zustand "^4.0.0-beta.0"
 
 "@web3-react/walletconnect-connector@^6.2.10":
   version "6.2.10"
@@ -19200,6 +19214,11 @@ use-subscription@^1.0.0:
   dependencies:
     object-assign "^4.1.1"
 
+use-sync-external-store@1.0.0-rc.0:
+  version "1.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.0.0-rc.0.tgz#0d8fb7cbc31ddfb3ee01225f6b0a700cf59c449b"
+  integrity sha512-0U9Xlc2QDFzSGMB0DvcJQL0+DIdxDPJC7mnZlYFbl7wrSrPMcs89X5TVkNB6Dzg618m8lZop+U+J6ow3vq9RAQ==
+
 use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
@@ -19455,6 +19474,17 @@ web3-provider-engine@16.0.1:
     ws "^5.1.1"
     xhr "^2.2.0"
     xtend "^4.0.1"
+
+"web3-react-core@npm:@web3-react/core@^6.0.9":
+  version "6.1.9"
+  resolved "https://registry.yarnpkg.com/@web3-react/core/-/core-6.1.9.tgz#5f5daa0545a8ea07770a699580ced552583afc97"
+  integrity sha512-P877DslsbAkWIlMANpWiK7pCvNwlz0kJC0EGckuVh0wlA23J4UnFxq6xyOaxkxaDCu14rA/tAO0NbwjcXTQgSA==
+  dependencies:
+    "@ethersproject/keccak256" "^5.0.0-beta.130"
+    "@web3-react/abstract-connector" "^6.0.7"
+    "@web3-react/types" "^6.0.7"
+    tiny-invariant "^1.0.6"
+    tiny-warning "^1.0.3"
 
 webidl-conversions@^3.0.0:
   version "3.0.1"
@@ -20169,6 +20199,13 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zustand@^4.0.0-beta.0:
+  version "4.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.0.0-beta.1.tgz#70ac562616a5a9f711a036290132432abb73b149"
+  integrity sha512-XdKfCM6I2k758AQY/WaUZoC0uQjj7z6NfvvYBo+cxU58M3iMsrHU9w7yUkUNIOKc9T8/5S0j54ga7wVGQWhcvA==
+  dependencies:
+    use-sync-external-store "1.0.0-rc.0"
 
 zwitch@^1.0.0:
   version "1.0.5"

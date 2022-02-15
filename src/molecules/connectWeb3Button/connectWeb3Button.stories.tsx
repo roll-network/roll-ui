@@ -1,4 +1,4 @@
-import { Web3ReactProvider } from "@web3-react/core";
+import { Web3ReactProvider } from "web3-react-core";
 import { useState } from "react";
 import { ConnectWeb3Button, HandleWeb3Connect } from ".";
 import { titleBuilder } from "../../../.storybook/utils";
@@ -31,7 +31,9 @@ export const Default = () => {
   const fallback = () => alert("handle connect is null");
 
   return withThemeProvider(
-    <Web3ReactProvider getLibrary={(provider) => new Web3Provider(provider)}>
+    <Web3ReactProvider
+      getLibrary={(provider: any) => new Web3Provider(provider)}
+    >
       <div>
         <ConnectWeb3Button
           onConnect={(hc) => {

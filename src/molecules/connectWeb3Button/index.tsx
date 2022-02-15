@@ -1,4 +1,4 @@
-import { useWeb3React } from "@web3-react/core";
+import { useWeb3React } from "web3-react-core";
 import { useEffect, useState } from "react";
 import { Web3Provider } from "@ethersproject/providers";
 import { AbstractConnector } from "@web3-react/abstract-connector";
@@ -62,7 +62,7 @@ export const ConnectWeb3Button = ({
   if (account) {
     return (
       <div className="flex h-8 self-center items-center bg-gray-200 p-2 rounded-lg">
-        <Body weight="bold">{shortenAddress(account)}</Body>
+        <Body>{shortenAddress(account)}</Body>
       </div>
     );
   }
