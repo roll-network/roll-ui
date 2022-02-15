@@ -1,7 +1,9 @@
 import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "web3-react-core";
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Web3Connectors } from "../web3Connectors";
+import { AbstractConnector } from "@web3-react/abstract-connector";
+import { useWeb3ConnectorsCtx } from "../providers/web3Connectors";
 
 const ethEventChainIDChanged = "chainIdChanged";
 const ethEventChainChanged = "chainChanged";
@@ -79,4 +81,49 @@ export const useSigner = () => {
 export const useEthAddress = () => {
   const { account } = useWeb3React<Web3Provider>();
   return account;
+};
+
+export const useConnectWeb3 = (
+  initActivityState: boolean | undefined = false
+): [boolean, (c: AbstractConnector) => void] => {
+  const { activate, connector } = useWeb3React<Web3Provider>();
+  const [isActivating, setIsActivating] = useState(initActivityState);
+
+  useEffect(() => {
+    if (isActivating && connector) {
+      setIsActivating(false);
+    }
+  }, [connector, isActivating]);
+
+  const handleConnect = useCallback(
+    (c: AbstractConnector) => {
+      setIsActivating(true);
+      activate(c);
+    },
+    [activate, setIsActivating]
+  );
+
+  return [isActivating, handleConnect];
+};
+
+export const useEagerConnect = (): boolean => {
+  const { activate } = useWeb3React<Web3Provider>();
+  const { connectors } = useWeb3ConnectorsCtx();
+  const [isActivating, setIsActivating] = useState(true);
+
+  useEffect(() => {
+    if (!connectors) return;
+    connectors.injected.isAuthorized().then((authorized: boolean) => {
+      if (!authorized) {
+        setIsActivating(false);
+        return;
+      }
+      if (!isActivating) setIsActivating(true);
+      activate(connectors.injected, undefined, true).finally(() =>
+        setIsActivating(false)
+      );
+    });
+  }, []);
+
+  return isActivating;
 };
