@@ -16,14 +16,14 @@ import {
 import { AbstractConnector } from "@web3-react/abstract-connector";
 
 type Web3ConnectorsContext = {
-  connectors: Web3Connectors | null;
+  connectors: Web3Connectors;
   setConnectors: (c: Web3Connectors) => void;
   handleConnect: (c: AbstractConnector) => void;
   isActivating: boolean;
 };
 
 export const Web3ConnectorsCtx = createContext<Web3ConnectorsContext>({
-  connectors: null,
+  connectors: new Web3Connectors("", ""),
   setConnectors: () => null,
   handleConnect: (c: AbstractConnector) => null,
   isActivating: false,
@@ -47,7 +47,7 @@ export const Web3ConnectorProvider: React.FC<Web3ConnectorProviderProps> = ({
 }) => {
   const { activate, connector } = useWeb3React<Web3Provider>();
   const [isActivating, setIsActivating] = useState(false);
-  const [connectors, setConnectors] = useState<Web3Connectors | null>(
+  const [connectors, setConnectors] = useState<Web3Connectors>(
     new Web3Connectors(
       fortmaticApiKey,
       portisDappID,
