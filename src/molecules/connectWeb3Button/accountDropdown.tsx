@@ -1,6 +1,6 @@
 import { AbstractConnector } from "@web3-react/abstract-connector";
 import { Body, margins, useTheme } from "../..";
-import { shortenAddress } from "../../utils/web3";
+import { etherscanAccountUrl, shortenAddress } from "../../utils/web3";
 import { ReactComponent as Copy } from "../../assets/svg/copy.svg";
 import { ReactComponent as WalletIcon } from "../../assets/svg/wallet.svg";
 import { ReactComponent as LinkIcon } from "../../assets/svg/link.svg";
@@ -8,12 +8,20 @@ export type HandleWeb3Connect = (c: AbstractConnector) => void;
 
 type Props = {
   address: string;
+  onSwitchAccounts: () => void;
+  onMouseIn: () => void;
+  onMouseOut: () => void;
 };
 
-export const AccountDropdwn = ({ address }: Props) => {
+export const AccountDropdwn = ({
+  address,
+  onSwitchAccounts,
+  onMouseIn,
+  onMouseOut,
+}: Props) => {
   const theme = useTheme();
   return (
-    <div className="p-4">
+    <div onMouseEnter={onMouseIn} onMouseLeave={onMouseOut} className="p-4">
       <Body color={theme.textMuted}>Connected with MetaMask</Body>
       <div className="flex flex-row bg-gray-200 p-2 rounded-lg my-2">
         <Body weight="bold" style={margins.mr8}>
@@ -22,8 +30,14 @@ export const AccountDropdwn = ({ address }: Props) => {
         <Copy />
       </div>
       <div className="flex flex-row">
-        <LinkOption icon={<WalletIcon />} title="Switch Accounts" />
-        <LinkOption icon={<LinkIcon />} title="View on Etherscan" />
+        <LinkOption
+          onPress={onSwitchAccounts}
+          icon={<WalletIcon />}
+          title="Switch Accounts"
+        />
+        <a target="_blank" href={etherscanAccountUrl(address)} rel="noreferrer">
+          <LinkOption icon={<LinkIcon />} title="View on Etherscan" />
+        </a>
       </div>
     </div>
   );
@@ -32,14 +46,15 @@ export const AccountDropdwn = ({ address }: Props) => {
 type LinkProps = {
   icon: React.ReactElement;
   title: string;
+  onPress?: () => void;
 };
 
-const LinkOption = ({ icon, title }: LinkProps) => {
+const LinkOption = ({ icon, title, onPress }: LinkProps) => {
   const theme = useTheme();
   return (
     <div className="flex flex-row items-center mr-4">
       {icon}
-      <Body style={margins.ml4} color={theme.highlight}>
+      <Body onPress={onPress} style={margins.ml4} color={theme.highlight}>
         {title}
       </Body>
     </div>

@@ -1,14 +1,11 @@
 import { AbstractConnector } from "@web3-react/abstract-connector";
-import { Body, Button, margins, useTheme } from "../..";
+import { Body, Button } from "../..";
 import { Activity } from "../../atoms/activity";
 import { shortenAddress } from "../../utils/web3";
 import { useEthAddress } from "../../hooks/web3";
 import { StyleProp, ViewStyle } from "react-native";
 import { Dropdown } from "../dropdown";
 import { useState } from "react";
-import { ReactComponent as Copy } from "../../assets/svg/copy.svg";
-import { ReactComponent as WalletIcon } from "../../assets/svg/wallet.svg";
-import { ReactComponent as LinkIcon } from "../../assets/svg/link.svg";
 import { AccountDropdwn } from "./accountDropdown";
 export type HandleWeb3Connect = (c: AbstractConnector) => void;
 
@@ -24,8 +21,8 @@ export const ConnectWeb3Button = ({
   activity,
 }: Props) => {
   const address = useEthAddress();
-  const [open, setOpen] = useState(false);
-  const theme = useTheme();
+  const [mouseInA, setMouseInA] = useState(false);
+  const [mouseInB, setMouseInB] = useState(false);
 
   if (activity) {
     return (
@@ -38,12 +35,22 @@ export const ConnectWeb3Button = ({
   if (address) {
     return (
       <Dropdown
-        open={open}
-        renderDropdown={() => <AccountDropdwn address={address} />}
+        open={mouseInA || mouseInB}
+        renderDropdown={() => (
+          <AccountDropdwn
+            onMouseIn={() => setMouseInB(true)}
+            onMouseOut={() => setMouseInB(false)}
+            onSwitchAccounts={() => {
+              setMouseInB(false);
+              onPress();
+            }}
+            address={address}
+          />
+        )}
       >
         <div
-          onMouseEnter={() => setOpen(true)}
-          onMouseLeave={() => setOpen(false)}
+          onMouseEnter={() => setMouseInA(true)}
+          onMouseLeave={() => setMouseInA(false)}
           className="flex h-8 self-center items-center bg-gray-200 p-2 rounded-lg"
         >
           <Body>{shortenAddress(address)}</Body>
