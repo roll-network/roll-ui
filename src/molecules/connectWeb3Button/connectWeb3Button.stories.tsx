@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ConnectWeb3Button, HandleWeb3Connect } from ".";
+import { ConnectWeb3Button } from ".";
 import { titleBuilder } from "../../../.storybook/utils";
 import { withThemeProvider } from "../../providers/theme/withProvider";
 
@@ -17,10 +17,8 @@ export const Default = () => {
 };
 
 const StoryComponent = () => {
-  const { connectors } = useWeb3ConnectorsCtx();
+  const { connectors, handleConnect } = useWeb3ConnectorsCtx();
   const [showOptions, setShowOptions] = useState(false);
-  const [handleConnect, setHandleConnect] =
-    useState<HandleWeb3Connect | null>(null);
 
   const fallback = () => alert("handle connect is null");
 
@@ -28,13 +26,7 @@ const StoryComponent = () => {
 
   return (
     <div>
-      <ConnectWeb3Button
-        onConnect={(hc) => {
-          setHandleConnect(() => hc);
-          setShowOptions(true);
-        }}
-        connectors={connectors}
-      />
+      <ConnectWeb3Button onPress={() => setShowOptions(true)} />
       {showOptions && (
         <ConnectWeb3Options
           onClose={() => setShowOptions(!showOptions)}

@@ -1,29 +1,23 @@
-import { useWeb3React } from "web3-react-core";
-import { useEffect, useState } from "react";
-import { Web3Provider } from "@ethersproject/providers";
 import { AbstractConnector } from "@web3-react/abstract-connector";
-import { Web3Connectors } from "../../web3Connectors";
 import { Body, Button } from "../..";
 import { Activity } from "../../atoms/activity";
 import { shortenAddress } from "../../utils/web3";
-import {
-  useConnectWeb3,
-  useEagerConnect,
-  useEthAddress,
-} from "../../hooks/web3";
+import { useEthAddress } from "../../hooks/web3";
+import { StyleProp, ViewStyle } from "react-native";
 
 export type HandleWeb3Connect = (c: AbstractConnector) => void;
 
 type Props = {
-  connectors: Web3Connectors;
-  buttonStyle?: any; // TODO define type properly
-  onConnect: (handleConnect: HandleWeb3Connect) => void;
+  buttonStyle?: StyleProp<ViewStyle>; // TODO define type properly
+  onPress: () => void;
+  activity?: boolean;
 };
 
-export const ConnectWeb3Button = ({ buttonStyle, onConnect }: Props) => {
-  const [isActivating, handleConnect] = useConnectWeb3();
-  const isEagerConnecting = useEagerConnect();
-  const activity = isActivating || isEagerConnecting;
+export const ConnectWeb3Button = ({
+  buttonStyle,
+  onPress,
+  activity,
+}: Props) => {
   const address = useEthAddress();
 
   if (activity) {
@@ -47,7 +41,7 @@ export const ConnectWeb3Button = ({ buttonStyle, onConnect }: Props) => {
       style={buttonStyle}
       type="primary"
       title="Connect Wallet"
-      onPress={() => onConnect(handleConnect)}
+      onPress={onPress}
     />
   );
 };
