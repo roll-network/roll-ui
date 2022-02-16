@@ -1,30 +1,28 @@
-import { useWeb3React } from "web3-react-core";
-import { useEffect, useState } from "react";
-import { Web3Provider } from "@ethersproject/providers";
 import { AbstractConnector } from "@web3-react/abstract-connector";
-import { Web3Connectors } from "../../web3Connectors";
 import { Body, Button } from "../..";
 import { Activity } from "../../atoms/activity";
 import { shortenAddress } from "../../utils/web3";
-import {
-  useConnectWeb3,
-  useEagerConnect,
-  useEthAddress,
-} from "../../hooks/web3";
-
+import { useEthAddress } from "../../hooks/web3";
+import { StyleProp, ViewStyle } from "react-native";
+import { Dropdown } from "../dropdown";
+import { useState } from "react";
+import { AccountDropdwn } from "./accountDropdown";
 export type HandleWeb3Connect = (c: AbstractConnector) => void;
 
 type Props = {
-  connectors: Web3Connectors;
-  buttonStyle?: any; // TODO define type properly
-  onConnect: (handleConnect: HandleWeb3Connect) => void;
+  buttonStyle?: StyleProp<ViewStyle>; // TODO define type properly
+  onPress: () => void;
+  activity?: boolean;
 };
 
-export const ConnectWeb3Button = ({ buttonStyle, onConnect }: Props) => {
-  const [isActivating, handleConnect] = useConnectWeb3();
-  const isEagerConnecting = useEagerConnect();
-  const activity = isActivating || isEagerConnecting;
+export const ConnectWeb3Button = ({
+  buttonStyle,
+  onPress,
+  activity,
+}: Props) => {
   const address = useEthAddress();
+  const [mouseInA, setMouseInA] = useState(false);
+  const [mouseInB, setMouseInB] = useState(false);
 
   if (activity) {
     return (
@@ -36,9 +34,28 @@ export const ConnectWeb3Button = ({ buttonStyle, onConnect }: Props) => {
 
   if (address) {
     return (
-      <div className="flex h-8 self-center items-center bg-gray-200 p-2 rounded-lg">
-        <Body>{shortenAddress(address)}</Body>
-      </div>
+      <Dropdown
+        open={mouseInA || mouseInB}
+        renderDropdown={() => (
+          <AccountDropdwn
+            onMouseIn={() => setMouseInB(true)}
+            onMouseOut={() => setMouseInB(false)}
+            onSwitchAccounts={() => {
+              setMouseInB(false);
+              onPress();
+            }}
+            address={address}
+          />
+        )}
+      >
+        <div
+          onMouseEnter={() => setMouseInA(true)}
+          onMouseLeave={() => setMouseInA(false)}
+          className="flex h-8 self-center items-center bg-gray-200 p-2 rounded-lg"
+        >
+          <Body>{shortenAddress(address)}</Body>
+        </div>
+      </Dropdown>
     );
   }
 
@@ -47,7 +64,7 @@ export const ConnectWeb3Button = ({ buttonStyle, onConnect }: Props) => {
       style={buttonStyle}
       type="primary"
       title="Connect Wallet"
-      onPress={() => onConnect(handleConnect)}
+      onPress={onPress}
     />
   );
 };

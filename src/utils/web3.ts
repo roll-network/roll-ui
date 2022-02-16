@@ -16,3 +16,6 @@ export function isAddress(value: string) {
     return false;
   }
 }
+
+export const etherscanAccountUrl = (address: string) =>
+  `https://etherscan.io/address/${address}`;

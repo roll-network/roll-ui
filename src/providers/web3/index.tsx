@@ -1,13 +1,11 @@
+import React from "react";
 import { Web3Provider as EthersWeb3Provider } from "@ethersproject/providers";
 import { Web3ReactProvider } from "web3-react-core";
 import {
-  useWeb3ConnectorsCtx,
   Web3ConnectorProvider,
   Web3ConnectorProviderProps,
 } from "../web3Connectors";
 import { AbstractConnector } from "@web3-react/abstract-connector";
-import { useInactiveListener } from "../../hooks/web3";
-import React from "react";
 
 const getDefaultLibrary = (provider: any) => new EthersWeb3Provider(provider);
 
@@ -16,12 +14,6 @@ type Props = Web3ConnectorProviderProps & {
     provider?: any,
     connector?: AbstractConnector | undefined
   ) => any;
-};
-
-const InactiveListener: React.FC = ({ children }) => {
-  const { connectors } = useWeb3ConnectorsCtx();
-  useInactiveListener(connectors);
-  return <>{children} </>;
 };
 
 export const Web3Provider: React.FC<Props> = ({
@@ -40,7 +32,7 @@ export const Web3Provider: React.FC<Props> = ({
         defaultChainID={defaultChainID}
         supportedChainIDs={supportedChainIDs}
       >
-        <InactiveListener>{children}</InactiveListener>
+        {children}
       </Web3ConnectorProvider>
     </Web3ReactProvider>
   );

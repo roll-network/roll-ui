@@ -10,6 +10,7 @@ import { SubHeader, Body } from "../../atoms/typography";
 import { text, useTheme } from "../..";
 import { useState, useMemo } from "react";
 import StyledLink from "../../atoms/styledLink";
+import { useWeb3ConnectorsCtx } from "../../providers/web3Connectors";
 
 type WalletOption = {
   title: string;
@@ -47,20 +48,14 @@ const buildWalletOptions = (connectors: Web3Connectors): WalletOption[] => [
 ];
 
 type Props = {
-  handleConnect: (connector: AbstractConnector) => void;
-  connectors: Web3Connectors;
   onSelect?: () => void;
   onClose?: () => void;
 };
 
-export const ConnectWeb3Options = ({
-  handleConnect,
-  connectors,
-  onSelect,
-  onClose,
-}: Props) => {
+export const ConnectWeb3Options = ({ onSelect, onClose }: Props) => {
   const theme = useTheme();
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+  const { connectors, handleConnect } = useWeb3ConnectorsCtx();
 
   const walletOptions = useMemo(
     () => buildWalletOptions(connectors),
