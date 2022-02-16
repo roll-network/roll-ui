@@ -9,21 +9,17 @@ export type HandleWeb3Connect = (c: AbstractConnector) => void;
 type Props = {
   address: string;
   onSwitchAccounts: () => void;
-  onMouseIn: () => void;
-  onMouseOut: () => void;
 };
 
-export const AccountDropdwn = ({
-  address,
-  onSwitchAccounts,
-  onMouseIn,
-  onMouseOut,
-}: Props) => {
+export const AccountDropdwn = ({ address, onSwitchAccounts }: Props) => {
   const theme = useTheme();
   return (
-    <div onMouseEnter={onMouseIn} onMouseLeave={onMouseOut} className="p-4">
+    <div className="p-4" style={{ minWidth: 320 }}>
       <Body color={theme.textMuted}>Connected with MetaMask</Body>
-      <div className="flex flex-row bg-gray-200 p-2 rounded-lg my-2">
+      <div
+        className="flex flex-row bg-gray-200 p-2 rounded-lg my-2"
+        style={{ maxWidth: 150 }}
+      >
         <Body weight="bold" style={margins.mr8}>
           {shortenAddress(address)}
         </Body>

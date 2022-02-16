@@ -2,15 +2,17 @@ import { useTheme } from "../..";
 
 type Props = {
   open: boolean;
-  setOpen?: (open: boolean) => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   renderDropdown: () => React.ReactElement;
 };
 
 export const Dropdown: React.FC<Props> = ({
   children,
   open,
-  setOpen,
   renderDropdown,
+  onMouseEnter,
+  onMouseLeave,
 }) => {
   const theme = useTheme();
   return (
@@ -18,7 +20,9 @@ export const Dropdown: React.FC<Props> = ({
       <div>{children}</div>
       {open && (
         <div
-          className="absolute w-full rounded-lg shadow-xl"
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          className="absolute rounded-lg shadow-xl"
           style={{ backgroundColor: theme.backgroundModal, zIndex: 1000 }}
         >
           {renderDropdown()}

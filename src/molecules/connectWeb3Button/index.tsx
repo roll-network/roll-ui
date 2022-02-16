@@ -35,11 +35,13 @@ export const ConnectWeb3Button = ({
   if (address) {
     return (
       <Dropdown
+        onMouseEnter={() => setMouseInB(true)}
+        onMouseLeave={() => setMouseInB(false)}
         open={mouseInA || mouseInB}
         renderDropdown={() => (
           <AccountDropdwn
-            onMouseIn={() => setMouseInB(true)}
-            onMouseOut={() => setMouseInB(false)}
+            // onMouseIn={() => setMouseInB(true)}
+            // onMouseOut={() => setMouseInB(false)}
             onSwitchAccounts={() => {
               setMouseInB(false);
               onPress();
