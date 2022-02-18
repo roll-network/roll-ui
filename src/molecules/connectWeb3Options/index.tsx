@@ -1,65 +1,32 @@
 import { AbstractConnector } from "@web3-react/abstract-connector";
-import { Web3Connectors } from "../../web3Connectors";
-import { ReactComponent as MetaMaskLogo } from "../../assets/svg/metamaskLogo.svg";
-import { ReactComponent as WalletConnectLogo } from "../../assets/svg/walletConnectLogo.svg";
-import { ReactComponent as CoinBaseLogo } from "../../assets/svg/coinbaseWalletLogo.svg";
-import { ReactComponent as FortmaticLogo } from "../../assets/svg/fortmaticLogo.svg";
-import { ReactComponent as PortisLogo } from "../../assets/svg/portisLogo.svg";
 import { ReactComponent as Close } from "../../assets/svg/close.svg";
 import { SubHeader, Body } from "../../atoms/typography";
 import { text, useTheme } from "../..";
 import { useState, useMemo } from "react";
 import StyledLink from "../../atoms/styledLink";
 import { useWeb3ConnectorsCtx } from "../../providers/web3Connectors";
-
-type WalletOption = {
-  title: string;
-  logo: JSX.Element;
-  connector: AbstractConnector;
-};
-
-const buildWalletOptions = (connectors: Web3Connectors): WalletOption[] => [
-  {
-    title: "Metamask",
-    logo: <MetaMaskLogo />,
-    connector: connectors.injected,
-  },
-  {
-    title: "WalletConnect",
-    logo: <WalletConnectLogo />,
-    connector: connectors.walletConnect,
-  },
-  {
-    // TODO configure coinbase connector
-    title: "Coinbase Wallet",
-    logo: <CoinBaseLogo />,
-    connector: connectors.injected,
-  },
-  {
-    title: "Fortmatic",
-    logo: <FortmaticLogo />,
-    connector: connectors.formatic,
-  },
-  {
-    title: "Portis",
-    logo: <PortisLogo />,
-    connector: connectors.portis,
-  },
-];
+import {
+  buildWalletOptionsMobile,
+  buildWalletOptionsWeb,
+} from "./walletConnectorOptions";
 
 type Props = {
   onSelect?: () => void;
   onClose?: () => void;
+  mobile?: boolean;
 };
 
-export const ConnectWeb3Options = ({ onSelect, onClose }: Props) => {
+export const ConnectWeb3Options = ({ onSelect, onClose, mobile }: Props) => {
   const theme = useTheme();
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const { connectors, handleConnect } = useWeb3ConnectorsCtx();
 
   const walletOptions = useMemo(
-    () => buildWalletOptions(connectors),
-    [connectors]
+    () =>
+      mobile
+        ? buildWalletOptionsMobile(connectors)
+        : buildWalletOptionsWeb(connectors),
+    [connectors, mobile]
   );
 
   const _select = (connector: AbstractConnector, idx: number) => {
@@ -82,8 +49,8 @@ export const ConnectWeb3Options = ({ onSelect, onClose }: Props) => {
           <ConnectWalletOption
             key={i}
             active={i === selectedIdx}
-            title={o.title}
-            logo={o.logo}
+            title={o.provider.title}
+            logo={o.provider.logo}
             onClick={() => _select(o.connector, i)}
           />
         ))}
