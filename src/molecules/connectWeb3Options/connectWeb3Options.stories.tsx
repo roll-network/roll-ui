@@ -8,10 +8,21 @@ const conf = {
   component: ConnectWeb3Options,
 };
 
-export const Default = () =>
+export const WebOptions = () =>
   withWeb3Provider(
     withThemeProvider(
       <ConnectWeb3Options
+        onClose={() => alert("on close event")}
+        onSelect={() => alert("on select event")}
+      />
+    )
+  );
+
+export const MobileOptions = () =>
+  withWeb3Provider(
+    withThemeProvider(
+      <ConnectWeb3Options
+        mobile={true}
         onClose={() => alert("on close event")}
         onSelect={() => alert("on select event")}
       />
