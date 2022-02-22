@@ -36,13 +36,20 @@ export const ConnectWeb3Options = ({ onSelect, onClose, mobile }: Props) => {
   };
 
   return (
-    <div style={{ minWidth: 400, maxWidth: 600 }}>
+    <div
+      className="rounded-lg"
+      style={{
+        minWidth: 350,
+        maxWidth: 600,
+        background: theme.backgroundPrimary,
+      }}
+    >
       <div className="flex justify-between p-4">
         <SubHeader weight="bold">Connect Wallet</SubHeader>
         <Close className="cursor-pointer" onClick={onClose} />
       </div>
       <div
-        className="p-4 flex flex-col items-center"
+        className="p-4 flex flex-col items-center rounded-lg"
         style={{ backgroundColor: theme.backgroundPage }}
       >
         {walletOptions.map((o, i) => (
