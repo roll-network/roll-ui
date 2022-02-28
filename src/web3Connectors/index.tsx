@@ -10,7 +10,7 @@ export const SUPPORTED_CHAIN_IDS = [CHAIN_ID_MAIN_NET, CHAIN_ID_ROPSTEN];
 
 export class Web3Connectors {
   supportedChainIDs: number[];
-  activeChainID: number;
+  defaultChainID: number;
 
   injected: InjectedConnector;
   formatic: FortmaticConnector;
@@ -24,7 +24,7 @@ export class Web3Connectors {
     supportedChainIDs: number[] = SUPPORTED_CHAIN_IDS
   ) {
     this.supportedChainIDs = supportedChainIDs;
-    this.activeChainID = defaultChainID;
+    this.defaultChainID = defaultChainID;
 
     this.injected = new InjectedConnector({
       supportedChainIds: this.supportedChainIDs,
@@ -32,7 +32,7 @@ export class Web3Connectors {
 
     this.formatic = new FortmaticConnector({
       apiKey: fortmaticApiKey,
-      chainId: this.activeChainID,
+      chainId: this.defaultChainID,
     });
 
     this.walletConnect = new WalletConnectConnector({

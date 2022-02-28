@@ -25,12 +25,16 @@ export const useInactiveListener = (
     [activate, connectors]
   );
 
-  const _onChangeChain = useCallback(() => {
-    handleReActivate(
-      "failed to re-activate after network changed",
-      () => onChangeChain && onChangeChain
-    );
-  }, [handleReActivate, onChangeChain]);
+  const _onChangeChain = useCallback(
+    (e) => {
+      console.log("on change chain: ", e, typeof e);
+      handleReActivate(
+        "failed to re-activate after network changed",
+        () => onChangeChain && onChangeChain
+      );
+    },
+    [handleReActivate, onChangeChain]
+  );
 
   const _onChangeAccount = useCallback(
     (accounts: string[]) => {
@@ -79,4 +83,9 @@ export const useSigner = () => {
 export const useEthAddress = () => {
   const { account } = useWeb3React<Web3Provider>();
   return account;
+};
+
+export const useChainID = () => {
+  const { chainId } = useWeb3React<Web3Provider>();
+  return chainId;
 };
