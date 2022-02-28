@@ -45,6 +45,7 @@ type TypographyProps = {
   numberOfLines?: number;
   onPress?: (event: GestureResponderEvent) => void;
   toolTipVal?: string;
+  underline?: boolean;
 };
 
 type TypographyBaseProps = TypographyProps & { fontSize: number };
@@ -59,6 +60,7 @@ export const TypographyBase = React.forwardRef(
       color,
       children,
       fontSize,
+      underline,
     }: TypographyBaseProps,
     ref
   ) => (
@@ -70,7 +72,15 @@ export const TypographyBase = React.forwardRef(
       numberOfLines={numberOfLines}
       testID="typographyBody"
       onPress={onPress}
-      style={[{ fontSize }, weights[weight], style, { color }]}
+      style={[
+        {
+          fontSize,
+          color,
+          textDecorationLine: underline ? "underline" : "none",
+        },
+        weights[weight],
+        style,
+      ]}
     >
       {children}
     </Text>
