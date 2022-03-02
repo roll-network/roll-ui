@@ -14,3 +14,8 @@ export const commafy = (n?: string | number, digits: number = 2) => {
   }
   return handleOutput(n);
 };
+
+export const truncateText = (str: string, len: number): string => {
+  if (str.length < len) return str;
+  return `${str.substring(0, len)}...`;
+};
