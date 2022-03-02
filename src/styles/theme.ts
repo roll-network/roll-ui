@@ -7,11 +7,13 @@ import {
   orange,
   solitudeGrey,
   mistyRose,
+  aliceBlue,
 } from ".";
 
 export type Theme = {
   backgroundPrimary: string;
   backgroundPage: string;
+  backgroundBlue: string;
   backgroundModal: string;
   backgroundHeader: string;
   backgroundGrey: string;
@@ -25,6 +27,7 @@ export type Theme = {
 export const lightTheme: Theme = {
   backgroundPrimary: white,
   backgroundPage: ghostWhite,
+  backgroundBlue: aliceBlue,
   backgroundModal: white,
   backgroundHeader: white,
   backgroundError: mistyRose,
