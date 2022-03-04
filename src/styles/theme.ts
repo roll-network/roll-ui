@@ -13,7 +13,7 @@ import {
 export type Theme = {
   backgroundPrimary: string;
   backgroundPage: string;
-  backgroundBlue: string;
+  backgroundSecondary: string;
   backgroundModal: string;
   backgroundHeader: string;
   backgroundGrey: string;
@@ -27,7 +27,7 @@ export type Theme = {
 export const lightTheme: Theme = {
   backgroundPrimary: white,
   backgroundPage: ghostWhite,
-  backgroundBlue: aliceBlue,
+  backgroundSecondary: aliceBlue,
   backgroundModal: white,
   backgroundHeader: white,
   backgroundError: mistyRose,
