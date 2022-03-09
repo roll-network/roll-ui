@@ -38,15 +38,6 @@ export type Web3ConnectorProviderProps = {
   supportedChainIDs?: number[];
 };
 
-const logAccount = async (c: AbstractConnector) => {
-  try {
-    const acc = await c.getAccount();
-    console.log("got account: ", acc);
-  } catch (err) {
-    console.log("log account error: ", err);
-  }
-};
-
 export const Web3ConnectorProvider: React.FC<Web3ConnectorProviderProps> = ({
   children,
   fortmaticApiKey,
@@ -68,7 +59,6 @@ export const Web3ConnectorProvider: React.FC<Web3ConnectorProviderProps> = ({
 
   const handleConnect = useCallback(
     (c: AbstractConnector) => {
-      console.log("connecting 222: ", c);
       setIsActivating(true);
       activate(c);
     },
@@ -78,9 +68,6 @@ export const Web3ConnectorProvider: React.FC<Web3ConnectorProviderProps> = ({
   // listen to connection state and turn off activity
   useEffect(() => {
     if (isActivating && connector) {
-      console.log("deactivating: ", connector);
-      logAccount(connector);
-
       setIsActivating(false);
     }
   }, [connector, isActivating]);
