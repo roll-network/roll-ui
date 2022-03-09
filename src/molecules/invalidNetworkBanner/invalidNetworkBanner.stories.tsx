@@ -14,7 +14,6 @@ export const Default = () => withWeb3Provider(<Banner />);
 
 const Banner = () => {
   const chainID = useChainID();
-  console.log("chainID: ", chainID);
 
   if (!chainID) {
     return <Body>Please connect wallet to test this component</Body>;

@@ -12,9 +12,9 @@ export class Web3Connectors {
   supportedChainIDs: number[];
   defaultChainID: number;
 
-  injected: InjectedConnector;
-  formatic: FortmaticConnector;
+  injected: InjectedConnector; // metamask or other browser extension
   walletConnect: WalletConnectConnector;
+  formatic: FortmaticConnector;
   portis: PortisConnector;
 
   constructor(

@@ -5,6 +5,7 @@ type Props = {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   renderDropdown: () => React.ReactElement;
+  alignLeft?: boolean;
 };
 
 export const Dropdown: React.FC<Props> = ({
@@ -13,6 +14,7 @@ export const Dropdown: React.FC<Props> = ({
   renderDropdown,
   onMouseEnter,
   onMouseLeave,
+  alignLeft,
 }) => {
   const theme = useTheme();
   return (
@@ -23,7 +25,11 @@ export const Dropdown: React.FC<Props> = ({
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           className="absolute rounded-lg shadow-xl"
-          style={{ backgroundColor: theme.backgroundModal, zIndex: 1000 }}
+          style={{
+            backgroundColor: theme.backgroundModal,
+            zIndex: 1000,
+            right: alignLeft ? 0 : undefined,
+          }}
         >
           {renderDropdown()}
         </div>
