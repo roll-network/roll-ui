@@ -31,10 +31,9 @@ export const InvalidNetworkBanner = ({
 }: Props) => {
   const theme = useTheme();
   const chainID = useChainID();
-  console.log("chainID: ", chainID);
 
   // only render element if connected to a network && network is invalid
-  if (chainID && supportedChainIDs.findIndex((val) => val === chainID) !== -1)
+  if (!chainID || supportedChainIDs.findIndex((val) => val === chainID) !== -1)
     return null;
 
   return (
