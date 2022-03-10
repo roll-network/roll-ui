@@ -20,6 +20,7 @@ type Web3ConnectorsContext = {
   setConnectors: (c: Web3Connectors) => void;
   handleConnect: (c: AbstractConnector) => void;
   isActivating: boolean;
+  eagerConnect: () => void;
 };
 
 export const Web3ConnectorsCtx = createContext<Web3ConnectorsContext>({
@@ -27,6 +28,7 @@ export const Web3ConnectorsCtx = createContext<Web3ConnectorsContext>({
   setConnectors: () => null,
   handleConnect: (c: AbstractConnector) => null,
   isActivating: false,
+  eagerConnect: () => null,
 });
 
 export const useWeb3ConnectorsCtx = () => useContext(Web3ConnectorsCtx);
@@ -36,6 +38,7 @@ export type Web3ConnectorProviderProps = {
   portisDappID: string;
   defaultChainID?: number;
   supportedChainIDs?: number[];
+  eagerConnect?: boolean;
 };
 
 export const Web3ConnectorProvider: React.FC<Web3ConnectorProviderProps> = ({
@@ -44,6 +47,7 @@ export const Web3ConnectorProvider: React.FC<Web3ConnectorProviderProps> = ({
   portisDappID,
   defaultChainID = CHAIN_ID_MAIN_NET,
   supportedChainIDs = SUPPORTED_CHAIN_IDS,
+  eagerConnect = true,
 }) => {
   const { activate, connector } = useWeb3React<Web3Provider>();
   const [isActivating, setIsActivating] = useState(false);
@@ -65,15 +69,7 @@ export const Web3ConnectorProvider: React.FC<Web3ConnectorProviderProps> = ({
     [activate, setIsActivating]
   );
 
-  // listen to connection state and turn off activity
-  useEffect(() => {
-    if (isActivating && connector) {
-      setIsActivating(false);
-    }
-  }, [connector, isActivating]);
-
-  // connect to injected connecter if already authorized
-  useEffect(() => {
+  const handleEagerConnect = useCallback(() => {
     if (!connectors) return;
     connectors.injected.isAuthorized().then((authorized: boolean) => {
       if (!authorized) {
@@ -85,11 +81,31 @@ export const Web3ConnectorProvider: React.FC<Web3ConnectorProviderProps> = ({
         setIsActivating(false)
       );
     });
+  }, [connectors, activate, isActivating]);
+
+  // listen to connection state and turn off activity
+  useEffect(() => {
+    if (isActivating && connector) {
+      setIsActivating(false);
+    }
+  }, [connector, isActivating]);
+
+  // connect to injected connecter if already authorized
+  useEffect(() => {
+    if (eagerConnect) {
+      handleEagerConnect();
+    }
   }, []); // only run on mount
 
   return (
     <Web3ConnectorsCtx.Provider
-      value={{ connectors, setConnectors, handleConnect, isActivating }}
+      value={{
+        connectors,
+        setConnectors,
+        handleConnect,
+        isActivating,
+        eagerConnect: handleEagerConnect,
+      }}
     >
       {children}
     </Web3ConnectorsCtx.Provider>
