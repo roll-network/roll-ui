@@ -42,7 +42,7 @@ export const InvalidNetworkBanner = ({
       style={{ backgroundColor: theme.backgroundError }}
     >
       <Body weight="bold" color={theme.textError}>
-        {title ? title : "You are connected to the wrong network. "}
+        {title ? `${title} ` : "You are connected to the wrong network. "}
       </Body>
       <Body
         onPress={() => handleChangeNetwork(validChainID)}
