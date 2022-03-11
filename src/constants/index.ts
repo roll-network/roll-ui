@@ -1,0 +1,1 @@
+export const stakingTermsUrl = "https://tryroll.com/protocol-terms-of-service/";

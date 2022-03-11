@@ -9,6 +9,7 @@ import {
   buildWalletOptionsMobile,
   buildWalletOptionsWeb,
 } from "./walletConnectorOptions";
+import { stakingTermsUrl } from "../../constants";
 
 type Props = {
   onSelect?: () => void;
@@ -64,7 +65,7 @@ export const ConnectWeb3Options = ({ onSelect, onClose, mobile }: Props) => {
         <div className="w-4/5 flex justify-center">
           <Body style={text.center}>
             By connecting, you accept the{" "}
-            <StyledLink title="Terms of Service" url="https://google.com" /> for
+            <StyledLink title="Terms of Service" url={stakingTermsUrl} /> for
             using the Roll protocol
           </Body>
         </div>
