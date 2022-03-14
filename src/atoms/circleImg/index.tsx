@@ -1,10 +1,5 @@
 import { useRef } from "react";
-import {
-  Image,
-  ImageStyle,
-  StyleProp,
-  StyleSheet,
-} from "react-native";
+import { Image, ImageStyle, StyleProp, StyleSheet, View } from "react-native";
 import { ReactComponent as DefaultIcon } from "../../assets/svg/default.svg";
 
 type Props = {
@@ -14,8 +9,10 @@ type Props = {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  borderRadius: {
     borderRadius: 100,
+  },
+  bg: {
     backgroundColor: "grey",
   },
 });
@@ -29,11 +26,16 @@ export const CircleImg = ({ size, style, uri }: Props) => {
       <Image
         source={{ uri }}
         style={[
-          styles.container,
+          styles.borderRadius,
+          styles.bg,
           { height: imgSize.current, width: imgSize.current },
           style,
         ]}
       />
     );
-  return <DefaultIcon height={imgSize.current} width={imgSize.current} />;
+  return (
+    <View style={[styles.borderRadius, style]}>
+      <DefaultIcon height={imgSize.current} width={imgSize.current} />
+    </View>
+  );
 };
