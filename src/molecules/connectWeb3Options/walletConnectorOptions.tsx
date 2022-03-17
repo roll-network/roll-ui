@@ -69,14 +69,14 @@ export const buildWalletOptionsWeb = (
 export const buildWalletOptionsMobile = (
   connectors: Web3Connectors
 ): WalletProviderOption[] => [
-  {
-    provider: WalletProviderWalletConnect,
-    connector: connectors.walletConnect,
-  },
-  {
-    provider: WalletProviderCoinBase,
-    connector: connectors.injected, // TODO set coinbase connector
-  },
+  // {
+  //   provider: WalletProviderWalletConnect,
+  //   connector: connectors.walletConnect,
+  // },
+  // {
+  //   provider: WalletProviderCoinBase,
+  //   connector: connectors.injected, // TODO set coinbase connector
+  // },
   {
     provider: WalletProviderFortmatic,
     connector: connectors.formatic,
