@@ -4,15 +4,16 @@ import { etherscanAccountUrl, shortenAddress } from "../../utils/web3";
 import { ReactComponent as Copy } from "../../assets/svg/copy.svg";
 import { ReactComponent as WalletIcon } from "../../assets/svg/wallet.svg";
 import { ReactComponent as LinkIcon } from "../../assets/svg/link.svg";
+import { useEthAddress } from "../../hooks/web3";
 export type HandleWeb3Connect = (c: AbstractConnector) => void;
 
 type Props = {
-  address: string;
   onSwitchAccounts: () => void;
 };
 
-export const AccountDropdwn = ({ address, onSwitchAccounts }: Props) => {
+export const AccountDropdwn = ({ onSwitchAccounts }: Props) => {
   const theme = useTheme();
+  const address = useEthAddress();
   return (
     <div className="p-4" style={{ minWidth: 320 }}>
       <Body color={theme.textMuted}>Connected with MetaMask</Body>
@@ -21,7 +22,7 @@ export const AccountDropdwn = ({ address, onSwitchAccounts }: Props) => {
         style={{ maxWidth: 150 }}
       >
         <Body weight="bold" style={margins.mr8}>
-          {shortenAddress(address)}
+          {shortenAddress(address || "")}
         </Body>
         <Copy />
       </div>
@@ -31,7 +32,11 @@ export const AccountDropdwn = ({ address, onSwitchAccounts }: Props) => {
           icon={<WalletIcon />}
           title="Switch Accounts"
         />
-        <a target="_blank" href={etherscanAccountUrl(address)} rel="noreferrer">
+        <a
+          target="_blank"
+          href={etherscanAccountUrl(address || "")}
+          rel="noreferrer"
+        >
           <LinkOption icon={<LinkIcon />} title="View on Etherscan" />
         </a>
       </div>

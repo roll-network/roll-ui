@@ -45,7 +45,6 @@ export const ConnectWeb3Button = ({
               setMouseInB(false);
               onPress();
             }}
-            address={address}
           />
         )}
       >
