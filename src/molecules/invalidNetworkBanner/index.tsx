@@ -24,6 +24,11 @@ const handleChangeNetwork = async (chainID: number) => {
   }
 };
 
+const isSupportedNetwork = (
+  supportedChainIDs: number[],
+  chainID: number | undefined
+) => supportedChainIDs.findIndex((val) => val === chainID) !== -1;
+
 export const InvalidNetworkBanner = ({
   title,
   supportedChainIDs = SUPPORTED_CHAIN_IDS,
@@ -32,9 +37,15 @@ export const InvalidNetworkBanner = ({
   const theme = useTheme();
   const chainID = useChainID();
 
+  console.log(
+    "supported: ",
+    supportedChainIDs,
+    chainID,
+    isSupportedNetwork(supportedChainIDs, chainID)
+  );
+
   // only render element if connected to a network && network is invalid
-  if (!chainID || supportedChainIDs.findIndex((val) => val === chainID) !== -1)
-    return null;
+  if (isSupportedNetwork(supportedChainIDs, chainID)) return null;
 
   return (
     <div
