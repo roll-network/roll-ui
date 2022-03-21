@@ -37,13 +37,6 @@ export const InvalidNetworkBanner = ({
   const theme = useTheme();
   const chainID = useChainID();
 
-  console.log(
-    "supported: ",
-    supportedChainIDs,
-    chainID,
-    isSupportedNetwork(supportedChainIDs, chainID)
-  );
-
   // only render element if connected to a network && network is invalid
   if (isSupportedNetwork(supportedChainIDs, chainID)) return null;
 
