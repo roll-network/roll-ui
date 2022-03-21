@@ -123,10 +123,21 @@ export const padding = StyleSheet.create({
 });
 
 export const containers = StyleSheet.create({
+  shadowXL: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 6,
+      height: 8,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 15,
+    elevation: 5,
+  },
+
   shadow: {
     shadowColor: "#000",
     shadowOffset: {
-      width: 1,
+      width: 2,
       height: 2,
     },
     shadowOpacity: 0.15,
