@@ -23,10 +23,12 @@ export const Web3Provider: React.FC<Props> = ({
   portisDappID,
   defaultChainID,
   supportedChainIDs,
+  eagerConnect,
 }) => {
   return (
     <Web3ReactProvider getLibrary={getLibrary || getDefaultLibrary}>
       <Web3ConnectorProvider
+        eagerConnect={eagerConnect}
         fortmaticApiKey={fortmaticApiKey}
         portisDappID={portisDappID}
         defaultChainID={defaultChainID}
