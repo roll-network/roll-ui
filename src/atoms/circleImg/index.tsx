@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { Image, ImageStyle, StyleProp, StyleSheet, View } from "react-native";
-import { ReactComponent as DefaultIcon } from "../../assets/svg/default.svg";
+import Avatar from "boring-avatars";
 
 type Props = {
   size?: number;
   style?: StyleProp<ImageStyle>;
   uri?: string;
+  color?: Array<string>;
 };
 
 const styles = StyleSheet.create({
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
 
 export const DEFAULT_CIRCLE_IMG_SIZE = 48;
 
-export const CircleImg = ({ size, style, uri }: Props) => {
+export const CircleImg = ({ size, style, uri, color }: Props) => {
   const imgSize = useRef(size || DEFAULT_CIRCLE_IMG_SIZE);
   if (uri)
     return (
@@ -35,7 +36,7 @@ export const CircleImg = ({ size, style, uri }: Props) => {
     );
   return (
     <View style={[styles.borderRadius, style]}>
-      <DefaultIcon height={imgSize.current} width={imgSize.current} />
+      <Avatar size={size} name="tokens" variant="marble" colors={color} />
     </View>
   );
 };
