@@ -8,6 +8,7 @@ import {
   solitudeGrey,
   mistyRose,
   aliceBlue,
+  darkNavy
 } from ".";
 
 export type Theme = {
@@ -18,6 +19,7 @@ export type Theme = {
   backgroundHeader: string;
   backgroundGrey: string;
   backgroundError: string;
+  backgroundBlue: string;
   textMuted: string;
   textError: string;
   textWarning: string;
@@ -36,4 +38,5 @@ export const lightTheme: Theme = {
   textWarning: orange,
   highlight: dodgerBlue,
   backgroundGrey: solitudeGrey,
+  backgroundBlue: darkNavy, 
 };
