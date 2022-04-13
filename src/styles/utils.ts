@@ -218,6 +218,7 @@ export const FONT_SIZE_SUB_HEADER = 16;
 export const FONT_SIZE_HEADER = 20;
 export const FONT_SIZE_LARGE_HEADER = 24;
 export const FONT_SIZE_TITLE = 28;
+export const FONT_SIZE_LARGE_TITLE = 48;
 
 export const text = StyleSheet.create({
   center: {
