@@ -23,7 +23,7 @@ export const CollapsableView = ({
 }: Props) => {
   return (
     <Surface style={[containers.fullWidth]}>
-      <div className="flex flex-col m-8">
+      <div className="flex flex-col p-8">
         <div className="flex justify-between items-center h-8">
           <Header weight="bold">{title}</Header>
           <button className="w-8 h-8 rounded-full bg-blue-600" onClick={toggle}>

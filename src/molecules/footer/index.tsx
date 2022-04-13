@@ -9,6 +9,7 @@ import {
   discordInviteUrl,
   faqUrl,
   instaUrl,
+  resourceCenterUrl,
   stakingTermsUrl,
   supportEmail,
   twitterUrl,
@@ -85,7 +86,7 @@ export const Footer = () => {
           </SubHeader>
           <SubHeader
             color={theme.backgroundPrimary}
-            onPress={() => (location.href = "")}
+            onPress={() => openLink(resourceCenterUrl, true)}
           >
             Resource Center
           </SubHeader>
