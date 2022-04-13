@@ -32,8 +32,8 @@ export const CollapsableView = ({
         </div>
         {isExpanded && (
           <div>
-            <div className="mt-7 w-full border-b" />
-            <div className="flex flex-col mt-7">{renderContent(content)}</div>
+            <div className="pt-7 w-full border-b" />
+            <div className="flex flex-col pt-7">{renderContent(content)}</div>
           </div>
         )}
       </div>
