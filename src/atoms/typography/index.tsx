@@ -8,6 +8,7 @@ import {
   FONT_SIZE_SUB_HEADER,
   FONT_SIZE_LARGE_HEADER,
   FONT_SIZE_TITLE,
+  FONT_SIZE_LARGE_TITLE
 } from "../../styles";
 import {
   GestureResponderEvent,
@@ -113,4 +114,8 @@ export const LargeHeader = ({ ...props }: TypographyProps) => (
 
 export const Title = ({ ...props }: TypographyProps) => (
   <TypographyBase {...props} fontSize={FONT_SIZE_TITLE} />
+);
+
+export const LargeTitle = ({ ...props }: TypographyProps) => (
+  <TypographyBase {...props} fontSize={FONT_SIZE_LARGE_TITLE} />
 );
