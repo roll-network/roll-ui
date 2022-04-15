@@ -13,6 +13,14 @@ type Props = {
   renderValue?: (displayVal: string) => React.ReactElement;
 };
 
+const maxDigitsStr = (s: string = "", digits: number) => {
+  let [n, d] = s.split(".");
+  if (d) {
+    return d.length > digits ? `${n}.${d.substring(0, digits)}` : `${n}.${d}`;
+  }
+  return `${n}.${d}`;
+};
+
 export const Value = ({
   displayValue,
   decimals,
@@ -20,13 +28,15 @@ export const Value = ({
   style,
   renderValue,
 }: Props) => {
+  const defaultVal = maxDigitsStr(displayValue, maxDigits);
+
   return (
-    <ToolTip placement="top" title={commafy(displayValue, decimals)}>
+    <ToolTip placement="top" title={displayValue}>
       <span>
         {renderValue ? (
           renderValue(commafy(displayValue, maxDigits))
         ) : (
-          <Body style={style}>{commafy(displayValue, maxDigits)}</Body>
+          <Body style={style}>{commafy(defaultVal, maxDigits)}</Body>
         )}
       </span>
     </ToolTip>

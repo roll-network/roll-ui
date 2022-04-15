@@ -22,4 +22,8 @@ export const TinyNum = () => (
   <Value displayValue="0.000000000000000008" decimals={18} />
 );
 
+export const LargeNum = () => (
+  <Value displayValue="99999999.999999999999999" decimals={18} />
+);
+
 export default storyConfig;
