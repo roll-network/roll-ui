@@ -1,14 +1,14 @@
-import "../src/index.css";
-import { injectFonts } from "../src/styles";
+import '../src/index.css';
+// import { injectFonts } from "../src/styles";
 
-injectFonts();
+// injectFonts();
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
+	actions: { argTypesRegex: '^on[A-Z].*' },
+	controls: {
+		matchers: {
+			color: /(background|color)$/i,
+			date: /Date$/,
+		},
+	},
 };
