@@ -43,8 +43,8 @@ export const TextField = ({
         value,
         onChangeText,
         placeholder,
-        activeOutlineColor: theme.highlight,
-        activeUnderlineColor: theme.highlight,
+        activeOutlineColor: theme.background.highlight,
+        activeUnderlineColor: theme.background.highlight,
       }}
     />
   );

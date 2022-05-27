@@ -42,7 +42,7 @@ export const ConnectWeb3Options = ({ onSelect, onClose, mobile }: Props) => {
       style={{
         minWidth: 350,
         maxWidth: 600,
-        background: theme.backgroundPrimary,
+        background: theme.background.primary,
       }}
     >
       <div className="flex justify-between p-4">
@@ -51,7 +51,7 @@ export const ConnectWeb3Options = ({ onSelect, onClose, mobile }: Props) => {
       </div>
       <div
         className="p-4 flex flex-col items-center rounded-lg"
-        style={{ backgroundColor: theme.backgroundPage }}
+        style={{ backgroundColor: theme.background.primary }}
       >
         {walletOptions.map((o, i) => (
           <ConnectWalletOption
@@ -89,7 +89,7 @@ const ConnectWalletOption = ({ title, logo, active, onClick }: OptionProps) => {
       className="flex flex-row justify-between rounded p-4 mb-4 w-full cursor-pointer"
       style={{
         borderWidth: 1,
-        borderColor: active ? theme.highlight : undefined,
+        borderColor: active ? theme.background.highlight : undefined,
       }}
     >
       <SubHeader>{title}</SubHeader>
