@@ -1,15 +1,14 @@
 import {
-  ghostWhite,
   white,
   grey,
   crimson,
   dodgerBlue,
   orange,
-  solitudeGrey,
   mistyRose,
   aliceBlue,
   darkNavy,
 } from ".";
+import { lavendar } from "./colors";
 
 interface PaletteBase {
   primary: string;
@@ -45,7 +44,7 @@ export const lightTheme: Theme = {
   background: {
     primary: white,
     secondary: aliceBlue,
-    highlight: dodgerBlue,
+    highlight: lavendar,
     lowLight: darkNavy,
     error: mistyRose,
     warning: orange,

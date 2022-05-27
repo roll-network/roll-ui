@@ -10,3 +10,4 @@ export const crimson = "#d0031c";
 export const orange = "#f7b217";
 export const solitudeGrey = "#BBBEC2";
 export const mistyRose = "#ffd8dd";
+export const lavendar = "#ccddff";
