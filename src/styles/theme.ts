@@ -8,7 +8,7 @@ import {
   aliceBlue,
   darkNavy,
 } from ".";
-import { lavendar } from "./colors";
+import { lavendar, lightGray } from "./colors";
 
 interface PaletteBase {
   primary: string;
@@ -20,30 +20,19 @@ interface PaletteBase {
 
 interface PaletteBackground extends PaletteBase {
   lowLight: string;
+  tertiary: string;
 }
 
 export type Theme = {
   background: PaletteBackground;
   text: PaletteBase;
-
-  // backgroundPrimary: string;
-  // backgroundPage: string;
-  // backgroundSecondary: string;
-  // backgroundModal: string;
-  // backgroundHeader: string;
-  // backgroundGrey: string;
-  // backgroundError: string;
-  // backgroundBlue: string;
-  // textMuted: string;
-  // textError: string;
-  // textWarning: string;
-  // highlight: string;
 };
 
 export const lightTheme: Theme = {
   background: {
     primary: white,
     secondary: aliceBlue,
+    tertiary: lightGray,
     highlight: lavendar,
     lowLight: darkNavy,
     error: mistyRose,
@@ -56,16 +45,21 @@ export const lightTheme: Theme = {
     error: crimson,
     warning: orange,
   },
-  // backgroundPrimary: white,
-  // backgroundPage: ghostWhite,
-  // backgroundSecondary: aliceBlue,
-  // backgroundModal: white,
-  // backgroundHeader: white,
-  // backgroundError: mistyRose,
-  // textMuted: grey,
-  // textError: crimson,
-  // textWarning: orange,
-  // highlight: dodgerBlue,
-  // backgroundGrey: solitudeGrey,
-  // backgroundBlue: darkNavy,
 };
+
+/**
+ * Keeping as a reference for the time being until
+ * this new theme format is more better adopted
+ */
+// backgroundPrimary: white,
+// backgroundPage: ghostWhite,
+// backgroundSecondary: aliceBlue,
+// backgroundModal: white,
+// backgroundHeader: white,
+// backgroundError: mistyRose,
+// textMuted: grey,
+// textError: crimson,
+// textWarning: orange,
+// highlight: dodgerBlue,
+// backgroundGrey: solitudeGrey,
+// backgroundBlue: darkNavy,
