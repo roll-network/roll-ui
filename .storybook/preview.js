@@ -1,7 +1,7 @@
 import '../src/index.css';
-// import { injectFonts } from "../src/styles";
+import { injectFonts } from '../src/styles';
 
-// injectFonts();
+injectFonts();
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
