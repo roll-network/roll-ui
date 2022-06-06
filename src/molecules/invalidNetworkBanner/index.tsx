@@ -43,15 +43,15 @@ export const InvalidNetworkBanner = ({
   return (
     <div
       className="flex justify-center p-6"
-      style={{ backgroundColor: theme.backgroundError }}
+      style={{ backgroundColor: theme.background.error }}
     >
-      <Body weight="bold" color={theme.textError}>
+      <Body weight="bold" color={theme.text.error}>
         {title ? `${title} ` : "You are connected to the wrong network. "}
       </Body>
       <Body
         onPress={() => handleChangeNetwork(validChainID)}
         underline
-        color={theme.textError}
+        color={theme.text.error}
       >
         Click here to change network
       </Body>
