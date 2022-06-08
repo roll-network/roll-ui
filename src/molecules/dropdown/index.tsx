@@ -26,7 +26,7 @@ export const Dropdown: React.FC<Props> = ({
           onMouseLeave={onMouseLeave}
           className="absolute rounded-lg shadow-xl"
           style={{
-            backgroundColor: theme.backgroundModal,
+            backgroundColor: theme.background.primary,
             zIndex: 1000,
             right: alignLeft ? 0 : undefined,
           }}
