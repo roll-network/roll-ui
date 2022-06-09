@@ -1,7 +1,7 @@
-import { useContext } from 'react';
-import { ThemeCtx } from '../providers/theme';
-import { ModalCtx } from '../context/modal';
-import { Theme } from '../styles/theme';
+import { useContext } from "react";
+import { ThemeCtx } from "../providers/theme";
+import { ModalCtx } from "../context/modal";
+import { Theme } from "../styles/theme";
 
 export const useTheme = (): Theme => {
 	const { theme } = useContext(ThemeCtx);

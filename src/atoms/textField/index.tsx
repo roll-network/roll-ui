@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
-import { StyleProp, TextStyle } from 'react-native';
-import { TextInput } from 'react-native-paper';
-import { RenderProps } from 'react-native-paper/lib/typescript/components/TextInput/types';
-import { useTheme } from '../../hooks';
+import { ReactNode } from "react";
+import { StyleProp, TextStyle } from "react-native";
+import { TextInput } from "react-native-paper";
+import { RenderProps } from "react-native-paper/lib/typescript/components/TextInput/types";
+import { useTheme } from "../../hooks";
 
 type Props = {
 	disabled?: boolean;
@@ -37,9 +37,9 @@ export const TextField = ({
 				render,
 				onFocus,
 				onBlur,
-				autoCapitalize: capitalize ? 'characters' : undefined,
+				autoCapitalize: capitalize ? "characters" : undefined,
 				label,
-				style: [{ backgroundColor: 'transparent' }, style],
+				style: [{ backgroundColor: "transparent" }, style],
 				value,
 				onChangeText,
 				placeholder,

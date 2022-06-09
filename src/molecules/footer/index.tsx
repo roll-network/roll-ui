@@ -1,9 +1,9 @@
-import { useTheme } from '../..';
-import Logo from '../../assets/svg/logo.svg';
-import DiscordIcon from '../../assets/svg/discord.svg';
-import InstagramIcon from '../../assets/svg/insta.svg';
-import TwitterIcon from '../../assets/svg/twitter.svg';
-import { Header, SubHeader } from '../../atoms';
+import { useTheme } from "../..";
+import Logo from "../../assets/svg/logo.svg";
+import DiscordIcon from "../../assets/svg/discord.svg";
+import InstagramIcon from "../../assets/svg/insta.svg";
+import TwitterIcon from "../../assets/svg/twitter.svg";
+import { Header, SubHeader } from "../../atoms";
 import {
 	blogUrl,
 	discordInviteUrl,
@@ -13,10 +13,10 @@ import {
 	stakingTermsUrl,
 	supportEmail,
 	twitterUrl,
-} from '../../constants';
-import { margins } from '../../styles';
-import { openLink } from '../../utils/functions';
-import { SvgProps } from 'react-native-svg';
+} from "../../constants";
+import { margins } from "../../styles";
+import { openLink } from "../../utils/functions";
+import { SvgProps } from "react-native-svg";
 interface Icon {
 	Icon: React.FC<SvgProps>;
 	url: string;

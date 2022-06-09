@@ -1,10 +1,10 @@
-import MetaMaskLogo from '../../assets/svg/metamaskLogo.svg';
-import WalletConnectLogo from '../../assets/svg/walletConnectLogo.svg';
-import CoinBaseLogo from '../../assets/svg/coinbaseWalletLogo.svg';
-import FortmaticLogo from '../../assets/svg/fortmaticLogo.svg';
-import PortisLogo from '../../assets/svg/portisLogo.svg';
-import { Web3Connectors } from '../../web3Connectors';
-import { AbstractConnector } from '@web3-react/abstract-connector';
+import MetaMaskLogo from "../../assets/svg/metamaskLogo.svg";
+import WalletConnectLogo from "../../assets/svg/walletConnectLogo.svg";
+import CoinBaseLogo from "../../assets/svg/coinbaseWalletLogo.svg";
+import FortmaticLogo from "../../assets/svg/fortmaticLogo.svg";
+import PortisLogo from "../../assets/svg/portisLogo.svg";
+import { Web3Connectors } from "../../web3Connectors";
+import { AbstractConnector } from "@web3-react/abstract-connector";
 
 export type WalletProvider = {
 	title: string;
@@ -17,27 +17,27 @@ type WalletProviderOption = {
 };
 
 export const WalletProviderMetaMask: WalletProvider = {
-	title: 'Metamask',
+	title: "Metamask",
 	logo: <MetaMaskLogo />,
 };
 
 export const WalletProviderWalletConnect: WalletProvider = {
-	title: 'WalletConnect',
+	title: "WalletConnect",
 	logo: <WalletConnectLogo />,
 };
 
 export const WalletProviderCoinBase: WalletProvider = {
-	title: 'Coinbase Wallet',
+	title: "Coinbase Wallet",
 	logo: <CoinBaseLogo />,
 };
 
 export const WalletProviderFortmatic: WalletProvider = {
-	title: 'Fortmatic',
+	title: "Fortmatic",
 	logo: <FortmaticLogo />,
 };
 
 export const WalletProviderPortis: WalletProvider = {
-	title: 'Portis',
+	title: "Portis",
 	logo: <PortisLogo />,
 };
 

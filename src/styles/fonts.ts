@@ -1,18 +1,18 @@
 // OpenSans font
 //@ts-nocheck
-import openSansRegular from '../assets/fonts/OpenSans-Regular.ttf';
-import openSansBold from '../assets/fonts/OpenSans-Bold.ttf';
-import openSansBoldItalic from '../assets/fonts/OpenSans-BoldItalic.ttf';
-import openSansExtraBold from '../assets/fonts/OpenSans-ExtraBold.ttf';
-import openSansExtraBoldItalic from '../assets/fonts/OpenSans-ExtraBoldItalic.ttf';
-import openSansItalic from '../assets/fonts/OpenSans-Italic.ttf';
-import openSansLight from '../assets/fonts/OpenSans-Light.ttf';
-import openSansLightItalic from '../assets/fonts/OpenSans-LightItalic.ttf';
-import openSansSemiBold from '../assets/fonts/OpenSans-SemiBold.ttf';
-import openSansSemiBoldItalic from '../assets/fonts/OpenSans-SemiBoldItalic.ttf';
+import openSansRegular from "../assets/fonts/OpenSans-Regular.ttf";
+import openSansBold from "../assets/fonts/OpenSans-Bold.ttf";
+import openSansBoldItalic from "../assets/fonts/OpenSans-BoldItalic.ttf";
+import openSansExtraBold from "../assets/fonts/OpenSans-ExtraBold.ttf";
+import openSansExtraBoldItalic from "../assets/fonts/OpenSans-ExtraBoldItalic.ttf";
+import openSansItalic from "../assets/fonts/OpenSans-Italic.ttf";
+import openSansLight from "../assets/fonts/OpenSans-Light.ttf";
+import openSansLightItalic from "../assets/fonts/OpenSans-LightItalic.ttf";
+import openSansSemiBold from "../assets/fonts/OpenSans-SemiBold.ttf";
+import openSansSemiBoldItalic from "../assets/fonts/OpenSans-SemiBoldItalic.ttf";
 
 // SourceCodePro font
-import sourceCodeProRegular from '../assets/fonts/SourceCodePro-Regular.ttf';
+import sourceCodeProRegular from "../assets/fonts/SourceCodePro-Regular.ttf";
 
 const fontStylesString = `
   input:focus,
@@ -78,9 +78,9 @@ const fontStylesString = `
   }
 `;
 
-const fontStyles = document.createElement('style');
+const fontStyles = document.createElement("style");
 
-fontStyles.type = 'text/css';
+fontStyles.type = "text/css";
 
 if (fontStyles.styleSheet) {
 	fontStyles.styleSheet.cssText = fontStylesString;

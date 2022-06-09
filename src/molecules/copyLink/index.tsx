@@ -1,7 +1,7 @@
-import { Body, margins, truncateText } from '../..';
-import Copy from '../../assets/svg/copy.svg';
-import Check from '../../assets/svg/check.svg';
-import { useState } from 'react';
+import { Body, margins, truncateText } from "../..";
+import Copy from "../../assets/svg/copy.svg";
+import Check from "../../assets/svg/check.svg";
+import { useState } from "react";
 
 type Props = {
 	url: string;
@@ -19,7 +19,7 @@ export const CopyLink = ({ url, maxLen }: Props) => {
 				setCheck(false);
 			}, 500);
 		} catch (err) {
-			alert('unable to copy text to clipboard');
+			alert("unable to copy text to clipboard");
 		}
 	};
 

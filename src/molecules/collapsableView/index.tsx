@@ -1,6 +1,6 @@
-import { Body, containers, Header, Surface } from '../..';
-import ExpandIcon from '../../assets/svg/expandIcon.svg';
-import CollapseIcon from '../../assets/svg/collapseIcon.svg';
+import { Body, containers, Header, Surface } from "../..";
+import ExpandIcon from "../../assets/svg/expandIcon.svg";
+import CollapseIcon from "../../assets/svg/collapseIcon.svg";
 
 type Props = {
 	title: string;
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const renderContent = (content: React.ReactElement | string) => {
-	if (typeof content === 'string') return <Body>{content}</Body>;
+	if (typeof content === "string") return <Body>{content}</Body>;
 
 	return content;
 };

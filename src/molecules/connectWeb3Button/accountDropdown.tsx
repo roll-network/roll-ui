@@ -1,10 +1,10 @@
-import { AbstractConnector } from '@web3-react/abstract-connector';
-import { Body, margins, useTheme } from '../..';
-import { etherscanAccountUrl, shortenAddress } from '../../utils/web3';
-import Copy from '../../assets/svg/copy.svg';
-import WalletIcon from '../../assets/svg/wallet.svg';
-import LinkIcon from '../../assets/svg/link.svg';
-import { useEthAddress } from '../../hooks/web3';
+import { AbstractConnector } from "@web3-react/abstract-connector";
+import { Body, margins, useTheme } from "../..";
+import { etherscanAccountUrl, shortenAddress } from "../../utils/web3";
+import Copy from "../../assets/svg/copy.svg";
+import WalletIcon from "../../assets/svg/wallet.svg";
+import LinkIcon from "../../assets/svg/link.svg";
+import { useEthAddress } from "../../hooks/web3";
 export type HandleWeb3Connect = (c: AbstractConnector) => void;
 
 type Props = {
@@ -22,7 +22,7 @@ export const AccountDropdwn = ({ onSwitchAccounts }: Props) => {
 				style={{ maxWidth: 150 }}
 			>
 				<Body weight="bold" style={margins.mr8}>
-					{shortenAddress(address || '')}
+					{shortenAddress(address || "")}
 				</Body>
 				<Copy />
 			</div>
@@ -34,7 +34,7 @@ export const AccountDropdwn = ({ onSwitchAccounts }: Props) => {
 				/>
 				<a
 					target="_blank"
-					href={etherscanAccountUrl(address || '')}
+					href={etherscanAccountUrl(address || "")}
 					rel="noreferrer"
 				>
 					<LinkOption icon={<LinkIcon />} title="View on Etherscan" />
