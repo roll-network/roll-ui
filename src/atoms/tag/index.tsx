@@ -6,7 +6,7 @@ export const Tag = ({ title, color }: { title: string; color: string }) => {
   return (
     <View
       style={[
-        containers.borderRadius,
+        containers.borderRadius2XL,
         padding.p8,
         {
           backgroundColor: color,

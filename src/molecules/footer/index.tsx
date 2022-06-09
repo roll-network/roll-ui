@@ -42,13 +42,13 @@ export const Footer = () => {
 	return (
 		<div
 			className="flex flex-col w-full"
-			style={{ backgroundColor: theme.backgroundBlue }}
+			style={{ backgroundColor: theme.background.lowLight }}
 		>
 			<div className="flex self-center mt-11 mb-16">
 				<div className="flex flex-col self-end">
 					<Logo />
 					<SubHeader
-						color={theme.backgroundPrimary}
+						color={theme.background.primary}
 						style={margins.mt16}
 						onPress={() => openLink(`mailto:${supportEmail}`, true)}
 					>
@@ -56,43 +56,43 @@ export const Footer = () => {
 					</SubHeader>
 				</div>
 				<div className="flex flex-col mx-32">
-					<Header color={theme.backgroundPrimary} weight="bold">
+					<Header color={theme.background.primary} weight="bold">
 						Company
 					</Header>
 					<SubHeader
-						color={theme.backgroundPrimary}
+						color={theme.background.primary}
 						style={margins.mv8}
 						onPress={() => openLink(blogUrl)}
 					>
 						Blog
 					</SubHeader>
 					<SubHeader
-						color={theme.backgroundPrimary}
+						color={theme.background.primary}
 						onPress={() => openLink(faqUrl, true)}
 					>
 						FAQ
 					</SubHeader>
 				</div>
 				<div className="flex flex-col">
-					<Header color={theme.backgroundPrimary} weight="bold">
+					<Header color={theme.background.primary} weight="bold">
 						Resources
 					</Header>
 					<SubHeader
-						color={theme.backgroundPrimary}
+						color={theme.background.primary}
 						style={margins.mv8}
 						onPress={() => openLink(stakingTermsUrl, true)}
 					>
 						Protocol Terms
 					</SubHeader>
 					<SubHeader
-						color={theme.backgroundPrimary}
+						color={theme.background.primary}
 						onPress={() => openLink(resourceCenterUrl, true)}
 					>
 						Resource Center
 					</SubHeader>
 				</div>
 				<div className="flex flex-col ml-32">
-					<Header color={theme.backgroundPrimary} weight="bold">
+					<Header color={theme.background.primary} weight="bold">
 						Connect with us
 					</Header>
 					<div className="flex mt-4">

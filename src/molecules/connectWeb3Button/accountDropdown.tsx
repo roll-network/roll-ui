@@ -16,7 +16,7 @@ export const AccountDropdwn = ({ onSwitchAccounts }: Props) => {
 	const address = useEthAddress();
 	return (
 		<div className="p-4" style={{ minWidth: 320 }}>
-			<Body color={theme.textMuted}>Connected with MetaMask</Body>
+			<Body color={theme.text.secondary}>Connected with MetaMask</Body>
 			<div
 				className="flex flex-row bg-gray-200 p-2 rounded-lg my-2"
 				style={{ maxWidth: 150 }}
@@ -55,7 +55,7 @@ const LinkOption = ({ icon, title, onPress }: LinkProps) => {
 	return (
 		<div className="flex flex-row items-center mr-4">
 			{icon}
-			<Body onPress={onPress} style={margins.ml4} color={theme.highlight}>
+			<Body onPress={onPress} style={margins.ml4} color={theme.text.highlight}>
 				{title}
 			</Body>
 		</div>

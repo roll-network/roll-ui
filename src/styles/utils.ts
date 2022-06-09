@@ -198,7 +198,16 @@ export const containers = StyleSheet.create({
     position: "absolute",
   },
   borderRadius: {
-    borderRadius: 5,
+    borderRadius: 8,
+  },
+  borderRadiusXL: {
+    borderRadius: 12,
+  },
+  borderRadius2XL: {
+    borderRadius: 16,
+  },
+  borderRadius3XL: {
+    borderRadius: 24,
   },
   alignSelfEnd: {
     alignSelf: "flex-end",
