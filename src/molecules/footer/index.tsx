@@ -16,9 +16,9 @@ import {
 } from "../../constants";
 import { margins } from "../../styles";
 import { openLink } from "../../utils/functions";
-import { SvgProps } from "react-native-svg";
+
 interface Icon {
-	Icon: React.FC<SvgProps>;
+	Icon: string;
 	url: string;
 }
 
@@ -97,11 +97,13 @@ export const Footer = () => {
 					</Header>
 					<div className="flex mt-4">
 						{icons.map(({ Icon, url }, idx) => (
-							<Icon
+							<div
 								key={idx}
 								onClick={() => openLink(url, true)}
 								className="cursor-pointer mr-6"
-							/>
+							>
+								<Icon />
+							</div>
 						))}
 					</div>
 				</div>

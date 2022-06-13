@@ -27,7 +27,9 @@ export const CopyLink = ({ url, maxLen }: Props) => {
 		<div className="inline-flex flex-row border-b-2 justify-between items-center">
 			<Body style={margins.mr8}>{truncateText(url, maxLen || 40)}</Body>
 			{!check ? (
-				<Copy className="cursor-pointer" onClick={handleCopy} />
+				<div className="cursor-pointer" onClick={handleCopy}>
+					<Copy />
+				</div>
 			) : (
 				<Check />
 			)}
