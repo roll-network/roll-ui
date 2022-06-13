@@ -33,6 +33,8 @@ export const TextField = ({
   return (
     <TextInput
       {...{
+        children: undefined,
+        autoComplete: undefined,
         disabled,
         render,
         onFocus,
