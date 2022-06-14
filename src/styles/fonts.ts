@@ -36,7 +36,7 @@ const fontStylesString = `
     src: url(${openSansBoldItalic});
     font-family: OpenSans-BoldItalic;
   }
-  
+
   @font-face {
     src: url(${openSansExtraBold});
     font-family: OpenSans-ExtraBold;
@@ -46,7 +46,7 @@ const fontStylesString = `
     src: url(${openSansExtraBoldItalic});
     font-family: OpenSans-ExtraBoldItalic;
   }
-    
+
   @font-face {
     src: url(${openSansItalic});
     font-family: OpenSans-Italic;
@@ -83,15 +83,15 @@ const fontStyles = document.createElement("style");
 fontStyles.type = "text/css";
 
 if (fontStyles.styleSheet) {
-  fontStyles.styleSheet.cssText = fontStylesString;
+	fontStyles.styleSheet.cssText = fontStylesString;
 } else {
-  fontStyles.appendChild(document.createTextNode(fontStylesString));
+	fontStyles.appendChild(document.createTextNode(fontStylesString));
 }
 
 export const injectFonts = () => {
-  if (document) {
-    document.head.appendChild(fontStyles);
-  }
+	if (document) {
+		document.head.appendChild(fontStyles);
+	}
 };
 
 export default fontStyles;

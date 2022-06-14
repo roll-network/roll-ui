@@ -1,88 +1,88 @@
-import { ReactComponent as MetaMaskLogo } from "../../assets/svg/metamaskLogo.svg";
-import { ReactComponent as WalletConnectLogo } from "../../assets/svg/walletConnectLogo.svg";
-import { ReactComponent as CoinBaseLogo } from "../../assets/svg/coinbaseWalletLogo.svg";
-import { ReactComponent as FortmaticLogo } from "../../assets/svg/fortmaticLogo.svg";
-import { ReactComponent as PortisLogo } from "../../assets/svg/portisLogo.svg";
+import MetaMaskLogo from "../../assets/svg/metamaskLogo.svg";
+import WalletConnectLogo from "../../assets/svg/walletConnectLogo.svg";
+import CoinBaseLogo from "../../assets/svg/coinbaseWalletLogo.svg";
+import FortmaticLogo from "../../assets/svg/fortmaticLogo.svg";
+import PortisLogo from "../../assets/svg/portisLogo.svg";
 import { Web3Connectors } from "../../web3Connectors";
 import { AbstractConnector } from "@web3-react/abstract-connector";
 
 export type WalletProvider = {
-  title: string;
-  logo: JSX.Element;
+	title: string;
+	logo: JSX.Element;
 };
 
 type WalletProviderOption = {
-  provider: WalletProvider;
-  connector: AbstractConnector;
+	provider: WalletProvider;
+	connector: AbstractConnector;
 };
 
 export const WalletProviderMetaMask: WalletProvider = {
-  title: "Metamask",
-  logo: <MetaMaskLogo />,
+	title: "Metamask",
+	logo: <MetaMaskLogo />,
 };
 
 export const WalletProviderWalletConnect: WalletProvider = {
-  title: "WalletConnect",
-  logo: <WalletConnectLogo />,
+	title: "WalletConnect",
+	logo: <WalletConnectLogo />,
 };
 
 export const WalletProviderCoinBase: WalletProvider = {
-  title: "Coinbase Wallet",
-  logo: <CoinBaseLogo />,
+	title: "Coinbase Wallet",
+	logo: <CoinBaseLogo />,
 };
 
 export const WalletProviderFortmatic: WalletProvider = {
-  title: "Fortmatic",
-  logo: <FortmaticLogo />,
+	title: "Fortmatic",
+	logo: <FortmaticLogo />,
 };
 
 export const WalletProviderPortis: WalletProvider = {
-  title: "Portis",
-  logo: <PortisLogo />,
+	title: "Portis",
+	logo: <PortisLogo />,
 };
 
 export const buildWalletOptionsWeb = (
-  connectors: Web3Connectors
+	connectors: Web3Connectors
 ): WalletProviderOption[] => [
-  {
-    provider: WalletProviderMetaMask,
-    connector: connectors.injected,
-  },
-  // {
-  //   provider: WalletProviderWalletConnect,
-  //   connector: connectors.walletConnect,
-  // },
-  // {
-  //   provider: WalletProviderCoinBase,
-  //   connector: connectors.injected, // TODO set coinbase connector
-  // },
-  {
-    provider: WalletProviderFortmatic,
-    connector: connectors.formatic,
-  },
-  {
-    provider: WalletProviderPortis,
-    connector: connectors.portis,
-  },
+	{
+		provider: WalletProviderMetaMask,
+		connector: connectors.injected,
+	},
+	// {
+	//   provider: WalletProviderWalletConnect,
+	//   connector: connectors.walletConnect,
+	// },
+	// {
+	//   provider: WalletProviderCoinBase,
+	//   connector: connectors.injected, // TODO set coinbase connector
+	// },
+	{
+		provider: WalletProviderFortmatic,
+		connector: connectors.formatic,
+	},
+	{
+		provider: WalletProviderPortis,
+		connector: connectors.portis,
+	},
 ];
 
 export const buildWalletOptionsMobile = (
-  connectors: Web3Connectors
+	connectors: Web3Connectors
 ): WalletProviderOption[] => [
-  // {
-  //   provider: WalletProviderWalletConnect,
-  //   connector: connectors.walletConnect,
-  // },
-  // {
-  //   provider: WalletProviderCoinBase,
-  //   connector: connectors.injected, // TODO set coinbase connector
-  // },
-  {
-    provider: WalletProviderFortmatic,
-    connector: connectors.formatic,
-  },
-  {
-    provider: WalletProviderPortis,
-    connector: connectors.portis,
-  },
+	// {
+	//   provider: WalletProviderWalletConnect,
+	//   connector: connectors.walletConnect,
+	// },
+	// {
+	//   provider: WalletProviderCoinBase,
+	//   connector: connectors.injected, // TODO set coinbase connector
+	// },
+	{
+		provider: WalletProviderFortmatic,
+		connector: connectors.formatic,
+	},
+	{
+		provider: WalletProviderPortis,
+		connector: connectors.portis,
+	},
 ];
