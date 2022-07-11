@@ -5,11 +5,13 @@ import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 
 export const CHAIN_ID_MAIN_NET = 1;
 export const CHAIN_ID_ROPSTEN = 3;
+export const CHAIN_ID_GOERLI = 5;
 export const CHAIN_ID_HARDHAT = 31337;
 
 export const SUPPORTED_CHAIN_IDS = [
   CHAIN_ID_MAIN_NET,
   CHAIN_ID_ROPSTEN,
+  CHAIN_ID_GOERLI,
   CHAIN_ID_HARDHAT,
 ];
 
