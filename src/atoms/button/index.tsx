@@ -5,7 +5,7 @@ import {
   ViewStyle,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { containers } from "../..";
+import { containers, padding } from "../..";
 import { Body } from "../typography";
 import { StyleSheet } from "react-native";
 import { typeContainerStyles, typeTextStyles } from "./styles";
@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     maxWidth: 600,
     minWidth: 100,
     height: 48,
-    paddingHorizontal: 24,
   },
 });
 
@@ -73,7 +72,7 @@ export const Button: React.FC<Props> = ({
       colors={typeStyle.container.gradientColors}
     >
       <TouchableOpacity
-        style={[containers.fullHeight, containers.fullWidth, containers.center]}
+        style={[containers.fullHeight, padding.ph24, containers.fullWidth, containers.center]}
         onPress={onPress}
         disabled={type === "disabled"}
       >
