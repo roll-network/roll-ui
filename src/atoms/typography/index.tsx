@@ -8,7 +8,7 @@ import {
   FONT_SIZE_SUB_HEADER,
   FONT_SIZE_LARGE_HEADER,
   FONT_SIZE_TITLE,
-  FONT_SIZE_LARGE_TITLE
+  FONT_SIZE_LARGE_TITLE,
 } from "../../styles";
 import {
   GestureResponderEvent,
@@ -18,8 +18,8 @@ import {
 } from "react-native";
 
 type Weights = {
-  [key: string]: FontFamily;
   bold: FontFamily;
+  semiBold: FontFamily;
   regular: FontFamily;
 };
 
@@ -29,6 +29,7 @@ type FontFamily = {
 
 const weights: Weights = {
   bold: text.bold,
+  semiBold: text.semiBold,
   regular: text.body,
 };
 
@@ -41,11 +42,10 @@ export const truncateMaxChars = (str: string, maxlimit = 100) => {
 type TypographyProps = {
   children: any;
   style?: StyleProp<TextStyle>;
-  weight?: "regular" | "bold";
+  weight?: keyof Weights;
   color?: string;
   numberOfLines?: number;
   onPress?: (event: GestureResponderEvent) => void;
-  toolTipVal?: string;
   underline?: boolean;
 };
 
