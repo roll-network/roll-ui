@@ -5,7 +5,7 @@ import { ToolTip } from "../tooltip";
 
 export const DEFAULT_MAX_DIGITS = 4;
 
-type Props = {
+export type Props = {
   displayValue: string;
   decimals: number;
   maxDigits?: number;

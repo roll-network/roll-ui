@@ -6,11 +6,6 @@ const storyConfig = {
   component: Footer,
 };
 
-export const Default = () => {
-  return (
-    <div>
-      <Footer />
-    </div>
-  );
-};
+export const Default = () => <Footer />;
+
 export default storyConfig;

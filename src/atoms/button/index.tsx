@@ -10,7 +10,7 @@ import { Body } from "../typography";
 import { StyleSheet } from "react-native";
 import { typeContainerStyles, typeTextStyles } from "./styles";
 
-type Props = {
+export type Props = {
   style?: StyleProp<ViewStyle>;
   type: "primary" | "secondary" | "minimal" | "disabled";
   title?: string;

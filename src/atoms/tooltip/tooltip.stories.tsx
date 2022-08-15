@@ -1,35 +1,22 @@
-import { ToolTip } from ".";
-// import { Body, TypographyBase } from "..";
-import { titleBuilder } from "../../../.storybook/utils";
+import { ToolTip, Props as ToolTipProps } from ".";
+import { titleBuilder, fromTemplate } from "../../../.storybook/utils";
 
 const storyConfig = {
   title: titleBuilder.atoms("Tooltip"),
   component: ToolTip,
 };
 
-export const Primary = () => (
-  <div>
-    <ToolTip title="I am a tooltip">
-      <p>Hello world</p>
-    </ToolTip>
-  </div>
+const Template = (props: ToolTipProps) => (
+  <ToolTip {...props}>
+    <span>Hover me</span>
+  </ToolTip>
 );
 
-export const Typography = () => (
-  <div>
-    <ToolTip title="I am a tooltip">
-      <p>Hello world</p>
-    </ToolTip>
-  </div>
-);
-export const Membership = () => (
-  <div>
-    <ToolTip title="I am a tooltipTiers are membership levels that you can access with lots of tokens. Claim lots below to become a member of this community." isMembership>
-      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-        <p style={{ width: "fit-content" }}>Hello world</p>
-      </div>
-    </ToolTip>
-  </div>
-);
+export const Default = fromTemplate(Template, { title: "Default" });
+export const Membership = fromTemplate(Template, {
+  title:
+    "Tiers are membership levels that you can access with lots of tokens. Claim lots below to become a member of this community.",
+  isMembership: true,
+});
 
 export default storyConfig;
