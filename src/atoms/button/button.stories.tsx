@@ -1,41 +1,31 @@
-import { Button } from ".";
-import { titleBuilder } from "../../../.storybook/utils";
+import { Button, Props as ButtonProps } from ".";
+import { titleBuilder, fromTemplate } from "../../../.storybook/utils";
 
 const storyConfig = {
   title: titleBuilder.atoms("Button"),
   component: Button,
 };
 
-export const Primary = () => (
-  <Button
-    title="Click Me"
-    type="primary"
-    onPress={() => console.log("hello")}
-  />
-);
+const Template = (props: ButtonProps) => <Button {...props} />;
 
-export const Secondary = () => (
-  <Button
-    title="Click Me"
-    type="secondary"
-    onPress={() => console.log("hello")}
-  />
-);
+export const Primary = fromTemplate(Template, {
+  type: "primary",
+  title: "Click me",
+});
 
-export const Disabled = () => (
-  <Button
-    title="Click Me"
-    type="disabled"
-    onPress={() => console.log("hello")}
-  />
-);
+export const Secondary = fromTemplate(Template, {
+  type: "secondary",
+  title: "Click me",
+});
 
-export const Minimal = () => (
-  <Button
-    title="Click Me"
-    type="minimal"
-    onPress={() => console.log("hello")}
-  />
-);
+export const Disabled = fromTemplate(Template, {
+  type: "disabled",
+  title: "Click me",
+});
+
+export const Minimal = fromTemplate(Template, {
+  type: "minimal",
+  title: "Click me",
+});
 
 export default storyConfig;
