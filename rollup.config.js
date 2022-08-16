@@ -21,13 +21,16 @@ const config = [
       {
         file: pkg.module,
         format: 'esm',
+        paths: {
+          "react-native": "react-native-web"
+        }
       },
     ],
     external: [...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       alias({
         entries: [
-          { find: 'react-native', replacement: 'react-native-web' },
+          { find: 'react-native$', replacement: 'react-native-web' },
           { find: 'react-native-linear-gradient', replacement: 'react-native-web-linear-gradient' }
         ]
       }),
