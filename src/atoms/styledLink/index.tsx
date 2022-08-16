@@ -7,7 +7,11 @@ type StyledLinkProps = {
   target?: string;
 };
 
-const StyledLink = ({ title, url, target = "_blank" }: StyledLinkProps) => {
+export const StyledLink = ({
+  title,
+  url,
+  target = "_blank",
+}: StyledLinkProps) => {
   const theme = useTheme();
 
   return (
@@ -16,5 +20,3 @@ const StyledLink = ({ title, url, target = "_blank" }: StyledLinkProps) => {
     </a>
   );
 };
-
-export default StyledLink;
