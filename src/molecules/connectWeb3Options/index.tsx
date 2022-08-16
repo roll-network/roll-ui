@@ -2,7 +2,7 @@ import { AbstractConnector } from "@web3-react/abstract-connector";
 import Close from "../../assets/svg/close.svg";
 import { text, useTheme } from "../..";
 import { useState, useMemo } from "react";
-import { StyledLink, SubHeader, Body } from "../../atoms";
+import { Anchor, SubHeader, Body } from "../../atoms";
 import { useWeb3ConnectorsCtx } from "../../providers/web3Connectors";
 import {
   buildWalletOptionsMobile,
@@ -66,8 +66,8 @@ export const ConnectWeb3Options = ({ onSelect, onClose, mobile }: Props) => {
         <div className="w-4/5 flex justify-center">
           <Body style={text.center}>
             By connecting, you accept the{" "}
-            <StyledLink title="Terms of Service" url={stakingTermsUrl} /> for
-            using the Roll protocol
+            <Anchor href={stakingTermsUrl}>Terms of Service</Anchor> for using
+            the Roll protocol
           </Body>
         </div>
       </div>
