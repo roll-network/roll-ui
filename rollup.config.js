@@ -17,6 +17,9 @@ const config = [
       {
         file: pkg.main,
         format: 'cjs',
+        paths: {
+          "react-native": "react-native-web"
+        }
       },
       {
         file: pkg.module,
