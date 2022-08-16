@@ -49,7 +49,7 @@ type TypographyProps = {
   underline?: boolean;
 };
 
-export type TypographyBaseProps = TypographyProps & { fontSize: number };
+export type TypographyBaseProps = TypographyProps & { fontSize?: number };
 
 export const TypographyBase = React.forwardRef(
   (

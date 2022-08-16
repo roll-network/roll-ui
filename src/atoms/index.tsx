@@ -4,4 +4,4 @@ export * from "./surface";
 export * from "./typography";
 export * from "./textField";
 export * from "./value";
-export * from "./styledLink";
+export * from "./anchor";

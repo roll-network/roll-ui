@@ -1,7 +1,7 @@
 import { TypographyBase, TypographyBaseProps } from "..";
-import { useTheme, FONT_SIZE_BODY } from "../..";
+import { useTheme } from "../..";
 
-type AnchorProps = {
+export type AnchorProps = {
   children: string;
   href: string;
   target?: string;
@@ -10,9 +10,9 @@ type AnchorProps = {
 export const Anchor = ({
   children,
   href,
-  fontSize = FONT_SIZE_BODY,
+  fontSize,
   target = "_blank",
-}: AnchorProps & Partial<Pick<TypographyBaseProps, "fontSize">>) => {
+}: AnchorProps & Pick<TypographyBaseProps, "fontSize">) => {
   const theme = useTheme();
 
   return (
