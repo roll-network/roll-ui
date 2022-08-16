@@ -1,4 +1,4 @@
-import { ToolTip, Props as ToolTipProps } from ".";
+import { ToolTip, TooltipComponentProps } from ".";
 import { titleBuilder, fromTemplate } from "../../../.storybook/utils";
 
 const storyConfig = {
@@ -6,7 +6,7 @@ const storyConfig = {
   component: ToolTip,
 };
 
-const Template = (props: ToolTipProps) => (
+const Template = (props: TooltipComponentProps) => (
   <ToolTip {...props}>
     <span>Hover me</span>
   </ToolTip>

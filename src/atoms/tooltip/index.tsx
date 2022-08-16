@@ -4,7 +4,7 @@ import MuiTooltip, {
 } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 
-export type Props = {
+export type TooltipComponentProps = {
   children: React.ReactElement;
   title: string | JSX.Element;
   open?: boolean;
@@ -52,7 +52,7 @@ const MembershipTooltip = styled(({ className, ...props }: TooltipProps) => (
   }
 }));
 
-export const ToolTip: React.FC<Props> = ({
+export const ToolTip: React.FC<TooltipComponentProps> = ({
   children,
   isMembership = false,
   ...props

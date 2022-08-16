@@ -12,13 +12,19 @@ import * as _ethersproject_providers from '@ethersproject/providers';
 import { Web3Provider as Web3Provider$1 } from '@ethersproject/providers';
 
 declare type Props$a = {
+    size?: "small" | "large" | number;
+    style?: StyleProp<ViewStyle>;
+};
+declare const Activity: ({ style, size }: Props$a) => JSX.Element;
+
+declare type ButtonProps = {
     style?: StyleProp<ViewStyle>;
     type: "primary" | "secondary" | "minimal" | "disabled";
     title?: string;
     onPress?: (e?: GestureResponderEvent) => void;
     isHovering?: boolean | undefined;
 };
-declare const Button: React.FC<Props$a>;
+declare const Button: React.FC<ButtonProps>;
 
 declare type Props$9 = {
     size?: number;
@@ -33,6 +39,40 @@ declare type Props$8 = {
     style?: StyleProp<ViewStyle>;
 };
 declare const Surface: React.FC<Props$8>;
+
+declare const Tag: ({ title, color }: {
+    title: string;
+    color: string;
+}) => JSX.Element;
+
+declare type Props$7 = {
+    disabled?: boolean;
+    onBlur?: () => void;
+    onFocus?: () => void;
+    capitalize?: boolean;
+    value: string;
+    label?: string;
+    placeholder?: string;
+    onChangeText: (val: string) => void;
+    style?: StyleProp<TextStyle>;
+    render?: ((props: RenderProps) => ReactNode) | undefined;
+};
+declare const TextField: ({ value, onChangeText, label, placeholder, style, capitalize, onBlur, onFocus, render, disabled, }: Props$7) => JSX.Element;
+
+declare const TokenChip: ({ symbol, logo, size, }: {
+    symbol: string;
+    logo: string;
+    size?: number | undefined;
+}) => JSX.Element;
+
+declare type TooltipComponentProps = {
+    children: React.ReactElement;
+    title: string | JSX.Element;
+    open?: boolean;
+    isMembership?: boolean;
+    placement?: "bottom-end" | "bottom-start" | "bottom" | "left-end" | "left-start" | "left" | "right-end" | "right-start" | "right" | "top-end" | "top-start" | "top";
+};
+declare const ToolTip: React.FC<TooltipComponentProps>;
 
 declare const truncateMaxChars: (str: string, maxlimit?: number) => string;
 declare type TypographyProps = {
@@ -56,20 +96,6 @@ declare const Header: ({ ...props }: TypographyProps) => JSX.Element;
 declare const LargeHeader: ({ ...props }: TypographyProps) => JSX.Element;
 declare const Title: ({ ...props }: TypographyProps) => JSX.Element;
 declare const LargeTitle: ({ ...props }: TypographyProps) => JSX.Element;
-
-declare type Props$7 = {
-    disabled?: boolean;
-    onBlur?: () => void;
-    onFocus?: () => void;
-    capitalize?: boolean;
-    value: string;
-    label?: string;
-    placeholder?: string;
-    onChangeText: (val: string) => void;
-    style?: StyleProp<TextStyle>;
-    render?: ((props: RenderProps) => ReactNode) | undefined;
-};
-declare const TextField: ({ value, onChangeText, label, placeholder, style, capitalize, onBlur, onFocus, render, disabled, }: Props$7) => JSX.Element;
 
 declare const DEFAULT_MAX_DIGITS = 4;
 declare type ValueProps = {
@@ -698,4 +724,4 @@ declare function shortenAddress(address: string, digits?: number): string;
 declare function isAddress(value: string): string | false;
 declare const etherscanAccountUrl: (address: string) => string;
 
-export { Body, Button, Caption, CircleImg, CollapsableView, ConnectWeb3Button, ConnectWeb3Options, CopyLink, DEFAULT_CIRCLE_IMG_SIZE, DEFAULT_MAX_DIGITS, Dropdown, FONT_SIZE_BODY, FONT_SIZE_CAPTION, FONT_SIZE_HEADER, FONT_SIZE_LARGE_HEADER, FONT_SIZE_LARGE_TITLE, FONT_SIZE_SUB_CAPTION, FONT_SIZE_SUB_HEADER, FONT_SIZE_TITLE, Footer, HandleWeb3Connect, Header, InvalidNetworkBanner, LargeHeader, LargeTitle, ModalManager, ModalProvider, Props$a as Props, RollToast, SubCaption, SubHeader, Surface, TextField, Theme, ThemeCtx, ThemeProvider, Title, TypographyBase, Value, ValueProps, Web3ConnectorProvider, Web3ConnectorProviderProps, Web3ConnectorsCtx, Web3Provider, aliceBlue, charcoalBlack, commafy, containers, crimson, cyanBlue, darkNavy, dodgerBlue, etherscanAccountUrl, ghostWhite, grey, injectFonts, isAddress, lavendar, lightGray, lightTheme, makeStyles, makeTextStyles, makeViewStyles, margins, mistyRose, openLink, openSans, orange, padding, shortenAddress, solitudeGrey, text, toastSuccess, truncateMaxChars, truncateText, useChainID, useEthAddress, useInactiveListener, useLibrary, useModal, useSigner, useTheme, useWeb3ConnectorsCtx, white, withWeb3Provider };
+export { Activity, Body, Button, ButtonProps, Caption, CircleImg, CollapsableView, ConnectWeb3Button, ConnectWeb3Options, CopyLink, DEFAULT_CIRCLE_IMG_SIZE, DEFAULT_MAX_DIGITS, Dropdown, FONT_SIZE_BODY, FONT_SIZE_CAPTION, FONT_SIZE_HEADER, FONT_SIZE_LARGE_HEADER, FONT_SIZE_LARGE_TITLE, FONT_SIZE_SUB_CAPTION, FONT_SIZE_SUB_HEADER, FONT_SIZE_TITLE, Footer, HandleWeb3Connect, Header, InvalidNetworkBanner, LargeHeader, LargeTitle, ModalManager, ModalProvider, RollToast, SubCaption, SubHeader, Surface, Tag, TextField, Theme, ThemeCtx, ThemeProvider, Title, TokenChip, ToolTip, TooltipComponentProps, TypographyBase, Value, ValueProps, Web3ConnectorProvider, Web3ConnectorProviderProps, Web3ConnectorsCtx, Web3Provider, aliceBlue, charcoalBlack, commafy, containers, crimson, cyanBlue, darkNavy, dodgerBlue, etherscanAccountUrl, ghostWhite, grey, injectFonts, isAddress, lavendar, lightGray, lightTheme, makeStyles, makeTextStyles, makeViewStyles, margins, mistyRose, openLink, openSans, orange, padding, shortenAddress, solitudeGrey, text, toastSuccess, truncateMaxChars, truncateText, useChainID, useEthAddress, useInactiveListener, useLibrary, useModal, useSigner, useTheme, useWeb3ConnectorsCtx, white, withWeb3Provider };

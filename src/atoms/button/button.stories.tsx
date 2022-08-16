@@ -1,4 +1,4 @@
-import { Button, Props as ButtonProps } from ".";
+import { Button, ButtonProps } from ".";
 import { titleBuilder, fromTemplate } from "../../../.storybook/utils";
 
 const storyConfig = {

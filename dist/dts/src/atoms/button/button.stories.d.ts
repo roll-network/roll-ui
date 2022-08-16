@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { Props as ButtonProps } from ".";
+import { ButtonProps } from ".";
 declare const storyConfig: {
     title: string;
     component: import("react").FC<ButtonProps>;
