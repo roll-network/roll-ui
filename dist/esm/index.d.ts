@@ -607,6 +607,12 @@ declare const ThemeProvider: React.FC;
 
 declare const ModalProvider: React.FC;
 
+declare const CHAIN_ID_MAIN_NET = 1;
+declare const CHAIN_ID_ROPSTEN = 3;
+declare const CHAIN_ID_GOERLI = 5;
+declare const CHAIN_ID_MUMBAI = 80001;
+declare const CHAIN_ID_HARDHAT = 31337;
+declare const SUPPORTED_CHAIN_IDS: number[];
 declare class Web3Connectors {
     supportedChainIDs: number[];
     defaultChainID: number;
@@ -724,4 +730,4 @@ declare function shortenAddress(address: string, digits?: number): string;
 declare function isAddress(value: string): string | false;
 declare const etherscanAccountUrl: (address: string) => string;
 
-export { Activity, Body, Button, ButtonProps, Caption, CircleImg, CollapsableView, ConnectWeb3Button, ConnectWeb3Options, CopyLink, DEFAULT_CIRCLE_IMG_SIZE, DEFAULT_MAX_DIGITS, Dropdown, FONT_SIZE_BODY, FONT_SIZE_CAPTION, FONT_SIZE_HEADER, FONT_SIZE_LARGE_HEADER, FONT_SIZE_LARGE_TITLE, FONT_SIZE_SUB_CAPTION, FONT_SIZE_SUB_HEADER, FONT_SIZE_TITLE, Footer, HandleWeb3Connect, Header, InvalidNetworkBanner, LargeHeader, LargeTitle, ModalManager, ModalProvider, RollToast, SubCaption, SubHeader, Surface, Tag, TextField, Theme, ThemeCtx, ThemeProvider, Title, TokenChip, ToolTip, TooltipComponentProps, TypographyBase, Value, ValueProps, Web3ConnectorProvider, Web3ConnectorProviderProps, Web3ConnectorsCtx, Web3Provider, aliceBlue, charcoalBlack, commafy, containers, crimson, cyanBlue, darkNavy, dodgerBlue, etherscanAccountUrl, ghostWhite, grey, injectFonts, isAddress, lavendar, lightGray, lightTheme, makeStyles, makeTextStyles, makeViewStyles, margins, mistyRose, openLink, openSans, orange, padding, shortenAddress, solitudeGrey, text, toastSuccess, truncateMaxChars, truncateText, useChainID, useEthAddress, useInactiveListener, useLibrary, useModal, useSigner, useTheme, useWeb3ConnectorsCtx, white, withWeb3Provider };
+export { Activity, Body, Button, ButtonProps, CHAIN_ID_GOERLI, CHAIN_ID_HARDHAT, CHAIN_ID_MAIN_NET, CHAIN_ID_MUMBAI, CHAIN_ID_ROPSTEN, Caption, CircleImg, CollapsableView, ConnectWeb3Button, ConnectWeb3Options, CopyLink, DEFAULT_CIRCLE_IMG_SIZE, DEFAULT_MAX_DIGITS, Dropdown, FONT_SIZE_BODY, FONT_SIZE_CAPTION, FONT_SIZE_HEADER, FONT_SIZE_LARGE_HEADER, FONT_SIZE_LARGE_TITLE, FONT_SIZE_SUB_CAPTION, FONT_SIZE_SUB_HEADER, FONT_SIZE_TITLE, Footer, HandleWeb3Connect, Header, InvalidNetworkBanner, LargeHeader, LargeTitle, ModalManager, ModalProvider, RollToast, SUPPORTED_CHAIN_IDS, SubCaption, SubHeader, Surface, Tag, TextField, Theme, ThemeCtx, ThemeProvider, Title, TokenChip, ToolTip, TooltipComponentProps, TypographyBase, Value, ValueProps, Web3ConnectorProvider, Web3ConnectorProviderProps, Web3Connectors, Web3ConnectorsCtx, Web3Provider, aliceBlue, charcoalBlack, commafy, containers, crimson, cyanBlue, darkNavy, dodgerBlue, etherscanAccountUrl, ghostWhite, grey, injectFonts, isAddress, lavendar, lightGray, lightTheme, makeStyles, makeTextStyles, makeViewStyles, margins, mistyRose, openLink, openSans, orange, padding, shortenAddress, solitudeGrey, text, toastSuccess, truncateMaxChars, truncateText, useChainID, useEthAddress, useInactiveListener, useLibrary, useModal, useSigner, useTheme, useWeb3ConnectorsCtx, white, withWeb3Provider };

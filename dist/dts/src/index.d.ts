@@ -5,3 +5,4 @@ export * from "./hooks";
 export * from "./molecules";
 export * from "./organisms";
 export * from "./utils";
+export * from "./web3Connectors";
