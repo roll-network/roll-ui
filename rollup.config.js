@@ -3,7 +3,9 @@ import dts from 'rollup-plugin-dts'
 import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
 import typescript from '@rollup/plugin-typescript';
+import json from "@rollup/plugin-json";
 import postCSS from 'rollup-plugin-postcss';
+import image from "@rollup/plugin-image";
 import url from 'rollup-plugin-url'
 
 import pkg from './package.json';
@@ -29,7 +31,10 @@ const config = [
           { find: 'react-native-linear-gradient', replacement: 'react-native-web-linear-gradient' }
         ]
       }),
-      nodeResolve(),
+      json(),
+      nodeResolve({
+        mainFields: ["browser"]
+      }),
       commonjs(),
       url({
         // by default, rollup-plugin-url will not handle font files
@@ -41,6 +46,7 @@ const config = [
       typescript({
         tsconfig: "./tsconfig.json"
       }),
+      image(),
       postCSS({
         plugins: [require('autoprefixer')],
       }),

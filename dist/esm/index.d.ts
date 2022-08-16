@@ -3,29 +3,36 @@ import { StyleProp, ViewStyle, GestureResponderEvent, ImageStyle, TextStyle, Sty
 import * as React$1 from 'react';
 import React__default, { ReactNode } from 'react';
 import { RenderProps } from 'react-native-paper/lib/typescript/components/TextInput/types';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { PortisConnector } from '@web3-react/portis-connector';
+import { FortmaticConnector } from '@web3-react/fortmatic-connector';
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
+import { AbstractConnector } from '@web3-react/abstract-connector';
+import * as _ethersproject_providers from '@ethersproject/providers';
+import { Web3Provider as Web3Provider$1 } from '@ethersproject/providers';
 
-declare type Props$3 = {
+declare type Props$a = {
     style?: StyleProp<ViewStyle>;
     type: "primary" | "secondary" | "minimal" | "disabled";
     title?: string;
     onPress?: (e?: GestureResponderEvent) => void;
     isHovering?: boolean | undefined;
 };
-declare const Button: React.FC<Props$3>;
+declare const Button: React.FC<Props$a>;
 
-declare type Props$2 = {
+declare type Props$9 = {
     size?: number;
     style?: StyleProp<ImageStyle>;
     uri?: string;
     color?: Array<string>;
 };
 declare const DEFAULT_CIRCLE_IMG_SIZE = 48;
-declare const CircleImg: ({ size, style, uri, color }: Props$2) => JSX.Element;
+declare const CircleImg: ({ size, style, uri, color }: Props$9) => JSX.Element;
 
-declare type Props$1 = {
+declare type Props$8 = {
     style?: StyleProp<ViewStyle>;
 };
-declare const Surface: React.FC<Props$1>;
+declare const Surface: React.FC<Props$8>;
 
 declare const truncateMaxChars: (str: string, maxlimit?: number) => string;
 declare type TypographyProps = {
@@ -50,7 +57,7 @@ declare const LargeHeader: ({ ...props }: TypographyProps) => JSX.Element;
 declare const Title: ({ ...props }: TypographyProps) => JSX.Element;
 declare const LargeTitle: ({ ...props }: TypographyProps) => JSX.Element;
 
-declare type Props = {
+declare type Props$7 = {
     disabled?: boolean;
     onBlur?: () => void;
     onFocus?: () => void;
@@ -62,7 +69,7 @@ declare type Props = {
     style?: StyleProp<TextStyle>;
     render?: ((props: RenderProps) => ReactNode) | undefined;
 };
-declare const TextField: ({ value, onChangeText, label, placeholder, style, capitalize, onBlur, onFocus, render, disabled, }: Props) => JSX.Element;
+declare const TextField: ({ value, onChangeText, label, placeholder, style, capitalize, onBlur, onFocus, render, disabled, }: Props$7) => JSX.Element;
 
 declare const DEFAULT_MAX_DIGITS = 4;
 declare type ValueProps = {
@@ -563,6 +570,7 @@ declare type Theme = {
     background: PaletteBackground;
     text: PaletteBase;
 };
+declare const lightTheme: Theme;
 
 declare type ThemeContext = {
     theme: Theme;
@@ -570,6 +578,42 @@ declare type ThemeContext = {
 };
 declare const ThemeCtx: React$1.Context<ThemeContext>;
 declare const ThemeProvider: React.FC;
+
+declare const ModalProvider: React.FC;
+
+declare class Web3Connectors {
+    supportedChainIDs: number[];
+    defaultChainID: number;
+    injected: InjectedConnector;
+    walletConnect: WalletConnectConnector;
+    formatic: FortmaticConnector;
+    portis: PortisConnector;
+    constructor(fortmaticApiKey: string, portisDappID: string, defaultChainID?: number, supportedChainIDs?: number[]);
+}
+
+declare type Web3ConnectorsContext = {
+    connectors: Web3Connectors;
+    setConnectors: (c: Web3Connectors) => void;
+    handleConnect: (c: AbstractConnector) => void;
+    isActivating: boolean;
+    eagerConnect: () => void;
+};
+declare const Web3ConnectorsCtx: React$1.Context<Web3ConnectorsContext>;
+declare const useWeb3ConnectorsCtx: () => Web3ConnectorsContext;
+declare type Web3ConnectorProviderProps = {
+    fortmaticApiKey: string;
+    portisDappID: string;
+    defaultChainID?: number;
+    supportedChainIDs?: number[];
+    eagerConnect?: boolean;
+};
+declare const Web3ConnectorProvider: React.FC<Web3ConnectorProviderProps>;
+
+declare type Props$6 = Web3ConnectorProviderProps & {
+    getLibrary?: (provider?: any, connector?: AbstractConnector | undefined) => any;
+};
+declare const Web3Provider: React__default.FC<Props$6>;
+declare const withWeb3Provider: (component: React__default.ReactElement) => JSX.Element;
 
 declare type ModalOpts = {
     style?: React__default.CSSProperties;
@@ -583,10 +627,75 @@ declare type ModalContext = {
     setRenderer: (renderer: ModalRenderer, opts?: ModalOpts) => void;
 };
 
+declare const useInactiveListener: (connectors: Web3Connectors | null, onChangeChain?: () => void, onChangeAccount?: () => void) => void;
+declare const useLibrary: () => Web3Provider$1 | undefined;
+declare const useSigner: () => _ethersproject_providers.JsonRpcSigner | undefined;
+declare const useEthAddress: () => string | null | undefined;
+declare const useChainID: () => number | undefined;
+
 declare const useTheme: () => Theme;
 declare const useModal: () => ModalContext;
+
+declare type Props$5 = {
+    title: string;
+    isExpanded: boolean;
+    toggle: () => void;
+    content: React.ReactElement | string;
+};
+declare const CollapsableView: ({ title, content, isExpanded, toggle, }: Props$5) => JSX.Element;
+
+declare type HandleWeb3Connect = (c: AbstractConnector) => void;
+declare type Props$4 = {
+    buttonStyle?: StyleProp<ViewStyle>;
+    onPress: () => void;
+    activity?: boolean;
+};
+declare const ConnectWeb3Button: ({ buttonStyle, onPress, activity, }: Props$4) => JSX.Element;
+
+declare type Props$3 = {
+    onSelect?: () => void;
+    onClose?: () => void;
+    mobile?: boolean;
+};
+declare const ConnectWeb3Options: ({ onSelect, onClose, mobile }: Props$3) => JSX.Element;
+
+declare type Props$2 = {
+    url: string;
+    maxLen?: number;
+};
+declare const CopyLink: ({ url, maxLen }: Props$2) => JSX.Element;
+
+declare type Props$1 = {
+    open: boolean;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
+    renderDropdown: () => React.ReactElement;
+    alignLeft?: boolean;
+};
+declare const Dropdown: React.FC<Props$1>;
+
+declare const Footer: () => JSX.Element;
+
+declare type Props = {
+    title?: string;
+    supportedChainIDs?: number[];
+    chainID?: number;
+    validChainID: number;
+};
+declare const InvalidNetworkBanner: ({ title, supportedChainIDs, validChainID, }: Props) => JSX.Element | null;
+
+declare const toastSuccess: (message: string) => string;
+declare const RollToast: React.FC;
+
+declare const ModalManager: () => JSX.Element;
 
 declare const commafy: (n?: string | number, digits?: number) => string;
 declare const truncateText: (str: string, len: number) => string;
 
-export { Body, Button, Caption, CircleImg, DEFAULT_CIRCLE_IMG_SIZE, DEFAULT_MAX_DIGITS, FONT_SIZE_BODY, FONT_SIZE_CAPTION, FONT_SIZE_HEADER, FONT_SIZE_LARGE_HEADER, FONT_SIZE_LARGE_TITLE, FONT_SIZE_SUB_CAPTION, FONT_SIZE_SUB_HEADER, FONT_SIZE_TITLE, Header, LargeHeader, LargeTitle, Props$3 as Props, SubCaption, SubHeader, Surface, TextField, ThemeCtx, ThemeProvider, Title, TypographyBase, Value, ValueProps, aliceBlue, charcoalBlack, commafy, containers, crimson, cyanBlue, darkNavy, dodgerBlue, ghostWhite, grey, injectFonts, lavendar, lightGray, makeStyles, makeTextStyles, makeViewStyles, margins, mistyRose, openSans, orange, padding, solitudeGrey, text, truncateMaxChars, truncateText, useModal, useTheme, white };
+declare const openLink: (link: string, newTab?: boolean) => void;
+
+declare function shortenAddress(address: string, digits?: number): string;
+declare function isAddress(value: string): string | false;
+declare const etherscanAccountUrl: (address: string) => string;
+
+export { Body, Button, Caption, CircleImg, CollapsableView, ConnectWeb3Button, ConnectWeb3Options, CopyLink, DEFAULT_CIRCLE_IMG_SIZE, DEFAULT_MAX_DIGITS, Dropdown, FONT_SIZE_BODY, FONT_SIZE_CAPTION, FONT_SIZE_HEADER, FONT_SIZE_LARGE_HEADER, FONT_SIZE_LARGE_TITLE, FONT_SIZE_SUB_CAPTION, FONT_SIZE_SUB_HEADER, FONT_SIZE_TITLE, Footer, HandleWeb3Connect, Header, InvalidNetworkBanner, LargeHeader, LargeTitle, ModalManager, ModalProvider, Props$a as Props, RollToast, SubCaption, SubHeader, Surface, TextField, Theme, ThemeCtx, ThemeProvider, Title, TypographyBase, Value, ValueProps, Web3ConnectorProvider, Web3ConnectorProviderProps, Web3ConnectorsCtx, Web3Provider, aliceBlue, charcoalBlack, commafy, containers, crimson, cyanBlue, darkNavy, dodgerBlue, etherscanAccountUrl, ghostWhite, grey, injectFonts, isAddress, lavendar, lightGray, lightTheme, makeStyles, makeTextStyles, makeViewStyles, margins, mistyRose, openLink, openSans, orange, padding, shortenAddress, solitudeGrey, text, toastSuccess, truncateMaxChars, truncateText, useChainID, useEthAddress, useInactiveListener, useLibrary, useModal, useSigner, useTheme, useWeb3ConnectorsCtx, white, withWeb3Provider };
