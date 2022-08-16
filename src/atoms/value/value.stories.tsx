@@ -1,4 +1,4 @@
-import { Value, Props as ValueProps } from ".";
+import { Value, ValueProps } from ".";
 import { titleBuilder, fromTemplate } from "../../../.storybook/utils";
 
 const storyConfig = {
