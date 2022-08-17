@@ -78,20 +78,18 @@ const fontStylesString = `
   }
 `;
 
-const fontStyles = document.createElement("style");
-
-fontStyles.type = "text/css";
-
-if (fontStyles.styleSheet) {
-	fontStyles.styleSheet.cssText = fontStylesString;
-} else {
-	fontStyles.appendChild(document.createTextNode(fontStylesString));
-}
 
 export const injectFonts = () => {
-	if (document) {
+  if (document) {
+    const fontStyles = document.createElement("style");
+    
+    fontStyles.type = "text/css";
+    
+    if (fontStyles.styleSheet) {
+      fontStyles.styleSheet.cssText = fontStylesString;
+    } else {
+      fontStyles.appendChild(document.createTextNode(fontStylesString));
+    }
 		document.head.appendChild(fontStyles);
 	}
 };
-
-export default fontStyles;
