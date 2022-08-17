@@ -8,7 +8,7 @@ import {
 	aliceBlue,
 	darkNavy,
 } from '.';
-import { ghostWhite, lavendar, lightGray } from './colors';
+import { charcoalBlack, ghostWhite, lavendar, lightGray } from './colors';
 
 interface PaletteBase {
 	primary: string;
@@ -41,7 +41,7 @@ export const lightTheme: Theme = {
 		page: ghostWhite,
 	},
 	text: {
-		primary: 'black',
+		primary: charcoalBlack,
 		secondary: grey,
 		highlight: dodgerBlue,
 		error: crimson,

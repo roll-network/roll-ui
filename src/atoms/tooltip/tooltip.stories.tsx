@@ -1,4 +1,4 @@
-import { ToolTip, Props as ToolTipProps } from ".";
+import { ToolTip, ToolTipProps } from ".";
 import { titleBuilder, fromTemplate } from "../../../.storybook/utils";
 
 const storyConfig = {

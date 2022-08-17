@@ -10,7 +10,7 @@ import { Body } from "../typography";
 import { StyleSheet } from "react-native";
 import { typeContainerStyles, typeTextStyles } from "./styles";
 
-export type Props = {
+export type ButtonProps = {
   style?: StyleProp<ViewStyle>;
   type: "primary" | "secondary" | "minimal" | "disabled";
   title?: string;
@@ -55,7 +55,7 @@ const getBaselineStyle = (type: string) => {
 const getStyles = (type: string, isHovering: boolean) =>
   isHovering ? getHoverStyle(type) : getBaselineStyle(type);
 
-export const Button: React.FC<Props> = ({
+export const Button: React.FC<ButtonProps> = ({
   title,
   children,
   onPress,

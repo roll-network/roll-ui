@@ -242,6 +242,9 @@ export const text = StyleSheet.create({
   bold: {
     fontFamily: openSans.bold,
   },
+  semiBold: {
+    fontFamily: openSans.semiBold,
+  },
   h1: {
     fontSize: 36,
   },
