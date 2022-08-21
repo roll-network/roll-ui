@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn roll lint --changed && yarn roll format --changed
+yarn lint:changed && yarn format:changed

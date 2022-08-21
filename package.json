@@ -41,7 +41,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "commit": "cz"
+    "commit": "cz",
+    "lint:changed": "roll lint --changed",
+    "format:changed": "roll format --changed"
   },
   "browserslist": {
     "production": [
