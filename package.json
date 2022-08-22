@@ -43,6 +43,7 @@
     "build-storybook": "build-storybook",
     "commit": "cz",
     "lint:changed": "roll lint --changed",
+    "lint:changed:fix": "roll lint --changed --fix",
     "format:changed": "roll format --changed"
   },
   "browserslist": {
@@ -75,9 +76,9 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "@tryrolljs/cli": "^0.0.5",
+    "@tryrolljs/cli": "^0.0.6",
     "@tryrolljs/eslint-config": "^0.0.2",
-    "@tryrolljs/prettier-config": "^0.0.1",
+    "@tryrolljs/prettier-config": "^0.0.2",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",

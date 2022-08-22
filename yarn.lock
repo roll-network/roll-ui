@@ -3952,12 +3952,12 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@tryrolljs/cli@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@tryrolljs/cli/-/cli-0.0.5.tgz#9c7b7454e8d18066cecf36e7db6a815add16cac5"
-  integrity sha512-nvYCl0ZPZCLu/LbSSez1VtnTbrjllhZiaSUslLUgTIYZsOwjuSor5WEaufbc2wcoFCQ6ngunCI+F2N7+QUF/yA==
+"@tryrolljs/cli@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@tryrolljs/cli/-/cli-0.0.6.tgz#426d6cfe78c9e372b7e65da684fc1a01a5cc2f57"
+  integrity sha512-3QJLNDFkvYh3veMcp5qi1CNu349BGS/sir69kqCN5dTNdwhWkjxYUxVM5I0xFrlqLEsh3NQeSB/YQnKKgz7NUg==
   dependencies:
-    "@tryrolljs/prettier-config" "0.0.1"
+    "@tryrolljs/prettier-config" "0.0.2"
     commander "^9.4.0"
     eslint "^8.22.0"
     prettier "^2.7.1"
@@ -3981,10 +3981,10 @@
     react "^18.2.0"
     typescript "^4.7.4"
 
-"@tryrolljs/prettier-config@0.0.1", "@tryrolljs/prettier-config@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@tryrolljs/prettier-config/-/prettier-config-0.0.1.tgz#a11b506259a94688e9ba756022f74db0c487f33f"
-  integrity sha512-fyoKR5JHjMfzQ1MQRp9VR9MHuHcgNqxeg55+33rLdN9lKZbdFJVE2FFQ9UhBmfCD/AtazK4GUie77GMDiWljlg==
+"@tryrolljs/prettier-config@0.0.2", "@tryrolljs/prettier-config@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@tryrolljs/prettier-config/-/prettier-config-0.0.2.tgz#0c584f89f34d747786a7b7f4a530e1d634b85a4e"
+  integrity sha512-HTYx9iaysL3gT7z7ROOCAG0a3RCH5RdxzDvYLUbjs3GlJZuKd8W/IuF1IahN842ldb+JyNXbLDAvb/GDlAMMdg==
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
