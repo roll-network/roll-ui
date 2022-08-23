@@ -77,7 +77,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@tryrolljs/cli": "^0.0.6",
-    "@tryrolljs/eslint-config": "^0.0.2",
+    "@tryrolljs/eslint-config": "^0.0.3",
     "@tryrolljs/prettier-config": "^0.0.2",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
