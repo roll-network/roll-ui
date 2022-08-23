@@ -16,5 +16,13 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    ".eslintrc.js",
+    ".prettierrc.js",
+    "commitlint.config.js",
+    "config-overrides.js",
+    "postcss.config.js",
+    "tailwind.config.js"
+  ]
 }

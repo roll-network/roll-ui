@@ -1,3 +1,3 @@
-const { getWebpackConfig } = require("./webpack");
+const { getWebpackConfig } = require('./webpack')
 
-module.exports = getWebpackConfig;
+module.exports = getWebpackConfig
